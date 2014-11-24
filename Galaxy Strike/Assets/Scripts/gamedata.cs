@@ -53,4 +53,8 @@ public class gamedata : MonoBehaviour {
 	// завантажує стан грі з файла
 	public static void Load(string fileName) {
 		}
+
+	void Awake() {
+		LoadData ();
+	}
 }
