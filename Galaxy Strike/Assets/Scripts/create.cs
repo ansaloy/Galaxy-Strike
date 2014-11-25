@@ -8,7 +8,7 @@ using System.Collections;
 
 	int planetsMax = 150; // максимальна кількість планет в ресурсі
 
-	public static float spaceLimit = 100; // константа 50% - 100%    Розмір Галактики для наповнення планетами
+
 	
 	void Start () {
 		PlanetsFit (); // Обраховуємо кількисть планет та розмищуємо їх в грі
@@ -18,7 +18,7 @@ using System.Collections;
 
 	void PlanetsFit (){
 		float voneplanet = 4 / 3 * Mathf.PI * Mathf.Pow (100, 3) / planetsMax; // обєм на одну планету
-		gamedata.planetsLimit = (int) (4 / 3 * Mathf.PI * Mathf.Pow (spaceLimit, 3) / voneplanet);
+		gamedata.planetsLimit = (int) (4 / 3 * Mathf.PI * Mathf.Pow (gamedata.spaceLimit, 3) / voneplanet);
 
 		// planetsLimit = 7;
 		// Заполнение сгенерированого игрового мира планетами из ресурса 
@@ -69,11 +69,51 @@ using System.Collections;
 		for (i = 0; i < gamedata.planetsLimit; i++) {
 			bool outSphere = true;
 			while (outSphere){
-				gamedata.planetsPosition[i].x = Random.Range (-1*(float)spaceLimit,(float)spaceLimit);
-				gamedata.planetsPosition[i].y = Random.Range (-1*(float)spaceLimit,(float)spaceLimit);
-				gamedata.planetsPosition[i].z = Random.Range (-1*(float)spaceLimit,(float)spaceLimit);
-				if (Vector3.Distance(gamedata.planetsPosition[i], Vector3.zero) < (float)spaceLimit) outSphere = false;
+				gamedata.planetsPosition[i].x = Random.Range (-1*(float)gamedata.spaceLimit,(float)gamedata.spaceLimit);
+				gamedata.planetsPosition[i].y = Random.Range (-1*(float)gamedata.spaceLimit,(float)gamedata.spaceLimit);
+				gamedata.planetsPosition[i].z = Random.Range (-1*(float)gamedata.spaceLimit,(float)gamedata.spaceLimit);
+				if (Vector3.Distance(gamedata.planetsPosition[i], Vector3.zero) < (float)gamedata.spaceLimit) outSphere = false;
 			}
+		}
+
+		gamedata.planetsResource = new int[gamedata.planetsLimit,5];
+		int radius;
+		int totalMinerals;
+		for (i = 0; i < gamedata.planetsLimit; i++) {
+			radius = gamedata.planetsSize[(gamedata.planetsID[i])];
+			totalMinerals = radius*Random.Range (5,15);
+			//print (""+i+": "+radius+" => "+totalMinerals);
+			gamedata.planetsResource[i,4] = (int) (totalMinerals*Random.Range (0.02f,0.2f)); // 5%-20%
+			totalMinerals -= gamedata.planetsResource[i,4];
+			gamedata.planetsResource[i,3] = (int) (totalMinerals*Random.Range (0.1f,0.25f)); // 5%-25% от остатка
+			totalMinerals -= gamedata.planetsResource[i,3];
+			gamedata.planetsResource[i,2] = (int) (totalMinerals*Random.Range (0.15f,0.33f)); // 5%-33% от остатка
+			totalMinerals -= gamedata.planetsResource[i,2];
+			gamedata.planetsResource[i,1] = (int) (totalMinerals*Random.Range (0.2f,0.5f)); // 5%-50% от остатка
+			totalMinerals -= gamedata.planetsResource[i,1];
+			gamedata.planetsResource[i,0] = totalMinerals; // 100% от остатка
+			//print (""+i+": "+gamedata.planetsResource[i,0]+" "+gamedata.planetsResource[i,1]+" "+gamedata.planetsResource[i,2]+" "+gamedata.planetsResource[i,3]+" "+gamedata.planetsResource[i,4]+" ");
+		}
+
+		gamedata.planetsMining = new int[gamedata.planetsLimit,5];
+		int totalMining;
+		int ppp;
+		for (i = 0; i < gamedata.planetsLimit; i++) {
+			radius = gamedata.planetsSize[(gamedata.planetsID[i])];
+			totalMining = Random.Range (radius/20,radius/5); // 100 -25 ходов
+			ppp = Random.Range (totalMining,totalMining*3)-totalMining;
+			gamedata.planetsPPP[i] = ppp;
+			print (""+i+": "+radius+" => "+totalMining);
+			gamedata.planetsMining[i,4] = (int) Mathf.Max (1f,(totalMining*Random.Range (0.05f,0.1f)));
+			totalMining = (int) Mathf.Max (0,totalMining-gamedata.planetsMining[i,4]);
+			gamedata.planetsMining[i,3] = (int) Mathf.Max (1f,(totalMining*Random.Range (0.1f,0.2f)));
+			totalMining = (int) Mathf.Max (0,totalMining-gamedata.planetsMining[i,3]);
+			gamedata.planetsMining[i,2] = (int) Mathf.Max (1f,(totalMining*Random.Range (0.2f,0.33f)));
+			totalMining = (int) Mathf.Max (0,totalMining-gamedata.planetsMining[i,2]);
+			gamedata.planetsMining[i,1] = (int) Mathf.Max (1f,(totalMining*Random.Range (0.33f,0.5f)));
+			totalMining = (int) Mathf.Max (0,totalMining-gamedata.planetsMining[i,1]);
+			gamedata.planetsMining[i,0] = (int) Mathf.Max (1f,totalMining);
+			print (""+i+": "+gamedata.planetsResource[i,0]+"/"+gamedata.planetsMining[i,0]+" "+gamedata.planetsResource[i,1]+"/"+gamedata.planetsMining[i,1]+" "+gamedata.planetsResource[i,2]+"/"+gamedata.planetsMining[i,2]+" "+gamedata.planetsResource[i,3]+"/"+gamedata.planetsMining[i,3]+" "+gamedata.planetsResource[i,4]+"/"+gamedata.planetsMining[i,4]+" ");
 		}
 	}
 

@@ -1,150 +1,150 @@
 001:Lithon:297:01: Test version
-002:Junk:300
-003:Quintessa:400
-004:Chaar:264
-005:Athenia:263
-006:Goo:214
-007:Dread:232
-008:Menonia:142
-009:Torkulon:207
-010:Eurythma:280
-011:Beasto:242
-012:Xetaxxis:251
-013:Lanarq:249
-014:Jixlanà:239
-015:Paradron:217
-016:Zamojin:200
-017:Nebulo:227
-018:Hive:248
-019:Androma:238
-020:Arcata:151
-021:Balos:296
-022:Centauri:148
-023:Xon:560
-024:Cignus:827
-025:Cyrus:151
-026:Daltron:337
-027:Dorado:376
-028:Dross:736
-029:Epsilon:113
-030:Falaron:241
-031:Ganymede:321
-032:Glasir:284
-033:Terraform:283
-034:Gorash:203
-035:Grome:215
-036:Halax:219
-037:Herig:605
-038:Hilak:480
-039:Ikos:269
-040:Io:469
-041:Immolan:294
-042:Janos:472
-043:Ji'v:425
-044:Kalevala:236
-045:Kara:292
-046:Kazomi:472
-047:Kitab:354
-048:Kordat:354
-049:Latig:350
-050:Melat:280
-051:Minbar:284
-052:Mipas:354
-053:Morada:427
-054:Morbis:135
-055:Duna:425
-056:Gaim:283
-057:Nam:283
-058:Vorlon:113
-059:Nemus:567
-060:Omelos:162
-061:Orion:113
-062:Pak'ma:150
-063:Photikar:198
-064:Vree:114
-065:Pictor:142
-066:Praxis:113
-067:Ralga:795
-068:Riga:674
-069:Septis:369
-070:Shambah:283
-071:Shandukan:114
-072:Sheffer:999
-073:Shi:328
-074:Sirius:085
-075:Soom:085
-076:Stabota:315
-077:Tarkon:251
-078:Tavita:113
-079:Theta:245
-080:Omega:085
-081:Tigris:284
-082:Tizino:472
-083:Tolonius:170
-084:Tripani:578
-085:Tumbor:476
-086:Vartas:487
-087:Vega:283
-088:Velatastat:170
-089:Ventauri:236
-090:Vermini:227
-091:Viscus:178
-092:Vreetan:531
-093:Ymir:560
-094:Zok:560
-095:Zhabar:795
-096:Zander:265
-097:Zagros:262
-098:Gropos:255
-099:Aldebaraan:261
-100:Bespin:560
-101:Cato:260
-102:Centax:151
-103:Chenini:262
-104:Corellia:318
-105:Coruscant:113
-106:Dagobah:142
-107:Dantoonie:268
-108:Endor:426
-109:Geonosis:312
-110:Ghomrassen:616
-111:Guermessa:142
-112:Hoth:210
-113:Jestefad:428
-114:Kashyyyk:113
-115:Mustafar:292
-116:Mygeeto:265
-117:Naboo:312
-118:Ohmad'un:374
-119:Polis:128
-120:Massa:124
-121:Rori:502
-122:Saleucami:088
-123:Tatooine:162
-124:Utapau:072
-125:Yavin:106
-126:Ix:072
-127:Kaitain:142
-128:Jobis:113
-129:Norfolk:831
-130:Arrakis:840
-131:Caladan:226
-132:Hades:404
-133:Cyteen:113
-134:Tamaran:551
-135:Atlas:404
-136:Una:400
-137:Krypton:567
-138:Daxam:600
-139:Mogo:436
-140:Oa:529
-141:Zorg:142
-142:Peladon:715
-143:Sanandy:539
-144:Nova:227
-145:Remus:227
-146:Xindus:709
-147:Monea:170
-148:Optera:170
-149:Vusstra:170
-150:Hilation:999
+002:Junk:300:01: undefined
+003:Quintessa:400:01: undefined
+004:Chaar:264:01: undefined
+005:Athenia:263:01: undefined
+006:Goo:214:01: undefined
+007:Dread:232:01: undefined
+008:Menonia:142:01: undefined
+009:Torkulon:207:01: undefined
+010:Eurythma:280:01: undefined
+011:Beasto:242:01: undefined
+012:Xetaxxis:251:01: undefined
+013:Lanarq:249:01: undefined
+014:Jixlanà:239:01: undefined
+015:Paradron:217:01: undefined
+016:Zamojin:200:01: undefined
+017:Nebulo:227:01: undefined
+018:Hive:248:01: undefined
+019:Androma:238:01: undefined
+020:Arcata:151:01: undefined
+021:Balos:296:01: undefined
+022:Centauri:148:01: undefined
+023:Xon:560:01: undefined
+024:Cignus:827:01: undefined
+025:Cyrus:151:01: undefined
+026:Daltron:337:01: undefined
+027:Dorado:376:01: undefined
+028:Dross:736:01: undefined
+029:Epsilon:113:01: undefined
+030:Falaron:241:01: undefined
+031:Ganymede:321:01: undefined
+032:Glasir:284:01: undefined
+033:Terraform:283:01: undefined
+034:Gorash:203:01: undefined
+035:Grome:215:01: undefined
+036:Halax:219:01: undefined
+037:Herig:605:01: undefined
+038:Hilak:480:01: undefined
+039:Ikos:269:01: undefined
+040:Io:469:01: undefined
+041:Immolan:294:01: undefined
+042:Janos:472:01: undefined
+043:Ji'v:425:01: undefined
+044:Kalevala:236:01: undefined
+045:Kara:292:01: undefined
+046:Kazomi:472:01: undefined
+047:Kitab:354:01: undefined
+048:Kordat:354:01: undefined
+049:Latig:350:01: undefined
+050:Melat:280:01: undefined
+051:Minbar:284:01: undefined
+052:Mipas:354:01: undefined
+053:Morada:427:01: undefined
+054:Morbis:135:01: undefined
+055:Duna:425:01: undefined
+056:Gaim:283:01: undefined
+057:Nam:283:01: undefined
+058:Vorlon:113:01: undefined
+059:Nemus:567:01: undefined
+060:Omelos:162:01: undefined
+061:Orion:113:01: undefined
+062:Pak'ma:150:01: undefined
+063:Photikar:198:01: undefined
+064:Vree:114:01: undefined
+065:Pictor:142:01: undefined
+066:Praxis:113:01: undefined
+067:Ralga:795:01: undefined
+068:Riga:674:01: undefined
+069:Septis:369:01: undefined
+070:Shambah:283:01: undefined
+071:Shandukan:114:01: undefined
+072:Sheffer:999:01: undefined
+073:Shi:328:01: undefined
+074:Sirius:085:01: undefined
+075:Soom:085:01: undefined
+076:Stabota:315:01: undefined
+077:Tarkon:251:01: undefined
+078:Tavita:113:01: undefined
+079:Theta:245:01: undefined
+080:Omega:085:01: undefined
+081:Tigris:284:01: undefined
+082:Tizino:472:01: undefined
+083:Tolonius:170:01: undefined
+084:Tripani:578:01: undefined
+085:Tumbor:476:01: undefined
+086:Vartas:487:01: undefined
+087:Vega:283:01: undefined
+088:Velatastat:170:01: undefined
+089:Ventauri:236:01: undefined
+090:Vermini:227:01: undefined
+091:Viscus:178:01: undefined
+092:Vreetan:531:01: undefined
+093:Ymir:560:01: undefined
+094:Zok:560:01: undefined
+095:Zhabar:795:01: undefined
+096:Zander:265:01: undefined
+097:Zagros:262:01: undefined
+098:Gropos:255:01: undefined
+099:Aldebaraan:261:01: undefined
+100:Bespin:560:01: undefined
+101:Cato:260:01: undefined
+102:Centax:151:01: undefined
+103:Chenini:262:01: undefined
+104:Corellia:318:01: undefined
+105:Coruscant:113:01: undefined
+106:Dagobah:142:01: undefined
+107:Dantoonie:268:01: undefined
+108:Endor:426:01: undefined
+109:Geonosis:312:01: undefined
+110:Ghomrassen:616:01: undefined
+111:Guermessa:142:01: undefined
+112:Hoth:210:01: undefined
+113:Jestefad:428:01: undefined
+114:Kashyyyk:113:01: undefined
+115:Mustafar:292:01: undefined
+116:Mygeeto:265:01: undefined
+117:Naboo:312:01: undefined
+118:Ohmad'un:374:01: undefined
+119:Polis:128:01: undefined
+120:Massa:124:01: undefined
+121:Rori:502:01: undefined
+122:Saleucami:088:01: undefined
+123:Tatooine:162:01: undefined
+124:Utapau:072:01: undefined
+125:Yavin:106:01: undefined
+126:Ix:072:01: undefined
+127:Kaitain:142:01: undefined
+128:Jobis:113:01: undefined
+129:Norfolk:831:01: undefined
+130:Arrakis:840:01: undefined
+131:Caladan:226:01: undefined
+132:Hades:404:01: undefined
+133:Cyteen:113:01: undefined
+134:Tamaran:551:01: undefined
+135:Atlas:404:01: undefined
+136:Una:400:01: undefined
+137:Krypton:567:01: undefined
+138:Daxam:600:01: undefined
+139:Mogo:436:01: undefined
+140:Oa:529:01: undefined
+141:Zorg:142:01: undefined
+142:Peladon:715:01: undefined
+143:Sanandy:539:01: undefined
+144:Nova:227:01: undefined
+145:Remus:227:01: undefined
+146:Xindus:709:01: undefined
+147:Monea:170:01: undefined
+148:Optera:170:01: undefined
+149:Vusstra:170:01: undefined
+150:Hilation:999:01: undefined
