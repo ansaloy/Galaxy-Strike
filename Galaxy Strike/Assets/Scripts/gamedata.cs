@@ -10,7 +10,8 @@ public class gamedata : MonoBehaviour {
 
 	public static string[] raceName;
 	public static Sprite[] raceAvatar;
-	public static int[,,] raceShips;
+	public static int[,,] raceShipsMineralsCost;
+	public static Sprite[] raceShipsAvatar;
 
 	public static int turn = 0;
 	public static int player = 0; // 0 - humen, 1-4 - computers AI
