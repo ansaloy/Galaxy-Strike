@@ -1,150 +1,150 @@
-001:Lithon:297:01: Test version
-002:Junk:300:01: undefined
-003:Quintessa:400:01: undefined
-004:Chaar:264:01: undefined
-005:Athenia:263:01: undefined
-006:Goo:214:01: undefined
-007:Dread:232:01: undefined
-008:Menonia:142:01: undefined
-009:Torkulon:207:01: undefined
-010:Eurythma:280:01: undefined
-011:Beasto:242:01: undefined
-012:Xetaxxis:251:01: undefined
-013:Lanarq:249:01: undefined
-014:Jixlan�:239:01: undefined
-015:Paradron:217:01: undefined
-016:Zamojin:200:01: undefined
-017:Nebulo:227:01: undefined
-018:Hive:248:01: undefined
-019:Androma:238:01: undefined
-020:Arcata:151:01: undefined
-021:Balos:296:01: undefined
-022:Centauri:148:01: undefined
-023:Xon:560:01: undefined
-024:Cignus:827:01: undefined
-025:Cyrus:151:01: undefined
-026:Daltron:337:01: undefined
-027:Dorado:376:01: undefined
-028:Dross:736:01: undefined
-029:Epsilon:113:01: undefined
-030:Falaron:241:01: undefined
-031:Ganymede:321:01: undefined
-032:Glasir:284:01: undefined
-033:Terraform:283:01: undefined
-034:Gorash:203:01: undefined
-035:Grome:215:01: undefined
-036:Halax:219:01: undefined
-037:Herig:605:01: undefined
-038:Hilak:480:01: undefined
-039:Ikos:269:01: undefined
-040:Io:469:01: undefined
-041:Immolan:294:01: undefined
-042:Janos:472:01: undefined
-043:Ji'v:425:01: undefined
-044:Kalevala:236:01: undefined
-045:Kara:292:01: undefined
-046:Kazomi:472:01: undefined
-047:Kitab:354:01: undefined
-048:Kordat:354:01: undefined
-049:Latig:350:01: undefined
-050:Melat:280:01: undefined
-051:Minbar:284:01: undefined
-052:Mipas:354:01: undefined
-053:Morada:427:01: undefined
-054:Morbis:135:01: undefined
-055:Duna:425:01: undefined
-056:Gaim:283:01: undefined
-057:Nam:283:01: undefined
-058:Vorlon:113:01: undefined
-059:Nemus:567:01: undefined
-060:Omelos:162:01: undefined
-061:Orion:113:01: undefined
-062:Pak'ma:150:01: undefined
-063:Photikar:198:01: undefined
-064:Vree:114:01: undefined
-065:Pictor:142:01: undefined
-066:Praxis:113:01: undefined
-067:Ralga:795:01: undefined
-068:Riga:674:01: undefined
-069:Septis:369:01: undefined
-070:Shambah:283:01: undefined
-071:Shandukan:114:01: undefined
-072:Sheffer:999:01: undefined
-073:Shi:328:01: undefined
-074:Sirius:085:01: undefined
-075:Soom:085:01: undefined
-076:Stabota:315:01: undefined
-077:Tarkon:251:01: undefined
-078:Tavita:113:01: undefined
-079:Theta:245:01: undefined
-080:Omega:085:01: undefined
-081:Tigris:284:01: undefined
-082:Tizino:472:01: undefined
-083:Tolonius:170:01: undefined
-084:Tripani:578:01: undefined
-085:Tumbor:476:01: undefined
-086:Vartas:487:01: undefined
-087:Vega:283:01: undefined
-088:Velatastat:170:01: undefined
-089:Ventauri:236:01: undefined
-090:Vermini:227:01: undefined
-091:Viscus:178:01: undefined
-092:Vreetan:531:01: undefined
-093:Ymir:560:01: undefined
-094:Zok:560:01: undefined
-095:Zhabar:795:01: undefined
-096:Zander:265:01: undefined
-097:Zagros:262:01: undefined
-098:Gropos:255:01: undefined
-099:Aldebaraan:261:01: undefined
-100:Bespin:560:01: undefined
-101:Cato:260:01: undefined
-102:Centax:151:01: undefined
-103:Chenini:262:01: undefined
-104:Corellia:318:01: undefined
-105:Coruscant:113:01: undefined
-106:Dagobah:142:01: undefined
-107:Dantoonie:268:01: undefined
-108:Endor:426:01: undefined
-109:Geonosis:312:01: undefined
-110:Ghomrassen:616:01: undefined
-111:Guermessa:142:01: undefined
-112:Hoth:210:01: undefined
-113:Jestefad:428:01: undefined
-114:Kashyyyk:113:01: undefined
-115:Mustafar:292:01: undefined
-116:Mygeeto:265:01: undefined
-117:Naboo:312:01: undefined
-118:Ohmad'un:374:01: undefined
-119:Polis:128:01: undefined
-120:Massa:124:01: undefined
-121:Rori:502:01: undefined
-122:Saleucami:088:01: undefined
-123:Tatooine:162:01: undefined
-124:Utapau:072:01: undefined
-125:Yavin:106:01: undefined
-126:Ix:072:01: undefined
-127:Kaitain:142:01: undefined
-128:Jobis:113:01: undefined
-129:Norfolk:831:01: undefined
-130:Arrakis:840:01: undefined
-131:Caladan:226:01: undefined
-132:Hades:404:01: undefined
-133:Cyteen:113:01: undefined
-134:Tamaran:551:01: undefined
-135:Atlas:404:01: undefined
-136:Una:400:01: undefined
-137:Krypton:567:01: undefined
-138:Daxam:600:01: undefined
-139:Mogo:436:01: undefined
-140:Oa:529:01: undefined
-141:Zorg:142:01: undefined
-142:Peladon:715:01: undefined
-143:Sanandy:539:01: undefined
-144:Nova:227:01: undefined
-145:Remus:227:01: undefined
-146:Xindus:709:01: undefined
-147:Monea:170:01: undefined
-148:Optera:170:01: undefined
-149:Vusstra:170:01: undefined
-150:Hilation:999:01: undefined
+001:Lithon:297:01:Known throughout the galaxy for its impeccable beauty , Lithon's tried to intrude as little as possible in the nature of the planet . Lithon proud expanse of the heavens , limitless steppes and unique natural diversity .
+002:Junk:300:01:Junk residents were men of high culture and education and build their society on environmental basis , preserving the natural beauty of the planet .
+003:Quintessa:400:01:Quintessa was arid double planet in the Sluis sector with a complex system of moons and home to race bfasshi . Due to the unusual configuration of the planet day could have a different duration .
+004:Chaar:264:01:In the days of the Old Republic on the planet Chaar located Praxeum Jedi .
+005:Athenia:263:01:Later , during the Clone Wars , Praxeum on Athenia joined to pro- separatist sect Jensaarai and became the seat of the revolt Dark Jedi .
+006:Goo:214:01:Goo originally Goruz - Criminal / enslaved world Goruz System . About Goo build the first " Death Star ." .
+007:Dread:232:01:Shipyards over Dread who created the Galactic Empire became the main Imperial construction sites , after the construction of the Death Star moved to Geonosis to Dread .
+008:Menonia:142:01:Many corporations Galaxy sent to the Menonia planet of labor, which subsequently worked in the prison or slave colonies .
+009:Torkulon:207:01:Fleet Empire severely restricted visiting system Torkulon. Only official military court , the prison ships and armed commercial freighters from corporations that supply components for spacecraft could enter within the system .
+010:Eurythma:280:01:Eurythma became the first victim of the Death Star . After finishing facilities Superlaser Grand Moff Tarkin decided to check superweapon .
+011:Beasto:242:01:As an experimental target Tarkin chose Beasto . He thus hoped to check superlaser and get rid of the slave station builders who have to carry out the mystery of the Death Star with him into eternity .
+012:Xetaxxis:251:01:Beam superlaser struck Xetaxxis bark , blowing the inner core of the planet , which led to the immediate commencement of a very strong earthquakes and volcanic eruptions .
+013:Lanarq:249:01:Lanarq - the planet , located in the eponymous system at the border Core. It is native to the world race Lanarq and Lanarq's Steperces .
+014:Jixlana:239:01:Jixlana featuring a wide blue seas , large land masses and an abundance of oxygen in the atmosphere .
+015:Paradron:217:01:It was a green planet with a mild climate , is not marred by any storms or tidal or seasonal changes .
+016:Zamojin:200:01:Among kilometers of gentle hills located dozens immaculate , well- planned cities , whose inhabitants were always polite , reasonable and peaceful. It is not surprising that those who had come to Zamojin , found him unbearably boring .
+017:Nebulo:227:01:Humanoid inhabitants Nebulo lived in a society where the main principle is universal conformity .
+018:Hive:248:01:Disagreement and innovation were so foreign to the mind of local residents that they could not even understand them. Such a procedure has existed for more than a thousand years .
+019:Androma:238:01:The unique nature of Androma allowed the planet to avoid strict restrictions on genetic research undertaken in the galaxy after the Clone Wars .
+020:Arcata:151:01:Cities on Arcata reminded mesh mathematically ideal cells with carefully planned housing square and gardens .
+021:Balos:296:01:Animal populations genetically controlled balosotami . They said that those who had the misfortune to land on Balos could go crazy from the monotony of the planet .
+022:Centauri:148:01:During the Clone Wars Centauri remained loyal to the Galactic Republic. Nevertheless , the military restrictions on cloning, complicated situation in the world and endanger the stability of society .
+023:Xon:560:01:During the attack on the Xon , the produced Colonel Cronus with his Scarlet team , great urban neighborhoods turned into ruins .
+024:Cignus:827:01:Once brilliant cloning centers affected by explosive shells , houses disappeared in clubs oily smoke. Cignuses killed thousands .
+025:Cyrus:151:01:However, perhaps the Admiral Daala's attack was a shock needed to bring Cyrus centuries of undisturbed sleep .
+026:Daltron:337:01:There is no exact information about what happened to Homme after the attack , but it is known that at least one clone Daltron -81 Daltron 82, studied at the Jedi .
+027:Dorado:376:01:In addition , it is unknown what happened to Dorado during the Yuuzhan Vong attack .
+028:Dross:736:01:Double planet ( Dual Worlds ) - a planet Talus and Tralus , orbiting station "Central" .
+029:Epsilon:113:01:Double planet were two of the "Five Brothers ". It was believed that an ancient race known as an architect, brought the planet to orbit Corell from another part of the galaxy , along with three other planets via the station " Rocker ".
+030:Falaron:241:01:In 500 BBY Federation was founded Dual worlds - government and Falaron Tralus . The capital of the Federation - Dearik on Falaron .
+031:Ganymede:321:01:Ganymede allied in a failed coup attempt in the Federation. Later Federation were allowed to determine the degree of autonomy in accordance with the rules of the Empire .
+032:Glasir:284:01:In time of crisis Corellian Liberal Party Glasir and Ganymede advocated independence for both worlds .
+033:Terraform:283:01:His eyes presented itself an impressive sight . Huge bright ball Terraform hung in the sky , occupying the middle third of the field of view .
+034:Gorash:203:01:Oceans on Gorash were less than Corellians and land split into thousands of islands of medium size, approximately equally spaced over the entire surface of the planet .
+035:Grome:215:01:Instead of having two or three big ocean and four or five continents , Grome is a labyrinth of water and land areas .
+036:Halax:219:01:The surface of the Halax consisted of a large number of small islands surrounded by oceans .
+037:Herig:605:01:Oceans on Herig were relatively small , and the land is subdivided into thousands of islands of medium size .
+038:Hilak:480:01:Island separated from each other by hundreds of seas, bays, narrows , straits , shallow areas of the sea .
+039:Ikos:269:01:On Ikos there is no point on land that would have been removed from the sea more than a hundred and fifty miles, and no single point of water , which would be located more than two hundred kilometers from the coast .
+040:Io:469:01:To get around this obstacle , Ioes dug an extensive network of tunnels beneath the surface , to facilitate communication between their peoples .
+041:Immolan:294:01:According to rumors , the oceans of the planet to be inhabited by sea monsters , as saying that only Immolan's oceans were large enough to accommodate these creatures .
+042:Janos:472:01:Janos " dens " and tunnels permeated much of the crust and mantle of the planet , while the planet orbital shipyards operated .
+043:Ji'v:425:01:Most vessels produced over Ji'v were constructed for use in the Corellian system .
+044:Kalevala:236:01:And since kalevalates usually have little interest in long-distance travel , vehicles are not equipped with hyperdrive .
+045:Kara:292:01:One of the most striking features of the planet was a volcanic mountain range , known as the Cloud summit, which rose so high that their tops were hidden in the clouds .
+046:Kazomi:472:01:Kazomi was close enough to the planet Corellia that most easily recognizable Corellian it among the many stars of the night sky .
+047:Kitab:354:01:Kitabs lived septa , clans ; Each lair usually had a few male - producers and only one fertile female , the queen .
+048:Kordat:354:01:It was believed that the inhabitants of heaven moved Kordat orbit Corella , along with four other planets , using planetary repulsors and station " Rocker " .
+049:Latig:350:01:It is not known whether seloniane natives of this planet, or they were relocated to her celestials . It is known that in 30,000 BBY, the planet was invaded by the Infinite Empire .
+050:Melat:280:01:In 500 BBY, Melat joined with Kara and Omelos in a failed attempt to conquer Gorash and Grome .
+051:Minbar:284:01:At the beginning of the Clone Wars Minbar became a place of victory over the Confederacy of Independent Systems Galactic Republic .
+052:Mipas:354:01:During the First Corellian rebellion , the power on the planet has been invaded by the Supreme lair .
+053:Morada:427:01:Moradas society at Morada and other planets in the system split into " neorepublic " .
+054:Morbis:135:01:Separatists who fought for the provision of Morbis sovereignty within the New Republic and under the auspices of the government of the Corellian sector .
+055:Duna:425:01:Absolutists who advocated complete independence Duna .
+056:Gaim:283:01:Captured " absolutists " planetary repulsor selone destroyed bakuransky frigate "Sentinel " used by the New Republic as bait .
+057:Nam:283:01:During the Yuuzhan Vong War frigate "Pride of Nam " was named in honor of this world .
+058:Vorlon:113:01:In 40 ABY , during the Galactic Civil War Vorlon was blocked by the Galactic Alliance .
+059:Nemus:567:01:Around 130 ABY on the planet's orbit were still Shipyards Nemus . 
+060:Omelos:162:01:According to Cracken's Threat Dossier, Cloud tops were located in the northern part of the planet on five islands.
+061:Orion:113:01:However, the map of the planet Orion , which leads Illustrated Encyclopedia. Planets and satellites , it is shown that they were located on a single island .
+062:Pak'ma:150:01:Pak'ma - Capital planet Hull sector .
+063:Photikar:198:01:A planet with a temperate climate , covered with trees swaying Azahar .
+064:Vree:114:01:Vree on populated low , half - covered with yellow fur creatures who call themselves bimmy and controlled Planetary Council .
+065:Pictor:142:01:Moderate World lush jungles and forests of trees Azahar .
+066:Praxis:113:01:Praxis was home race low , half - covered with yellow hair humanoid praxis .
+067:Ralga:795:01:In addition , the planet Ralga was colonized by low close to the human race that was assimilated aboriginal population and which became part of bimmi .
+068:Riga:674:01:Anthropoid bimmy built their city in the midst of vast plains . Bimmy were pacifists and sought to preserve the beauty of the planet Riga .
+069:Septis:369:01:Scouts discovered the Galactic Republic during the Great Destination , around 2,000 BBY Septis was colonized race of tiny humanoids .
+070:Shambah:283:01:On the planet was formed a single society in which there was a ban on all weapons .
+071:Shandukan:114:01:At the head of society stood the Council of Elders legislators .
+072:Sheffer:999:01:People petitioned the Galactic Republic as to the place in the Galactic Senate for their planet Sheffer .
+073:Shi:328:01:On the planet Shi .Set Tower Laws in the capital Glastro elders legislators began to hold meetings in it, while the outside of the tower formed a bustling market .
+074:Sirius:085:01:After obtaining representation in the Senate remained loyal to the Republic Sirius people for centuries .
+075:Soom:085:01:The decline of the Republic eventually led to what turned out to be Soom within Hutt Space .
+076:Stabota:315:01:Stabota people warmly received immigrants from the Republic , who were transported to their world Movement assistance to refugees, and highly respected member of the Jedi Order .
+077:Tarkon:251:01:After the fall of the Republic Tarkon was incorporated into the Galactic Empire .
+078:Tavita:113:01:Due to its isolation from the rest of the galaxy, as Tavita escaped rebel attacks and brutal imperial rule .
+079:Theta:245:01:By 9 ABY, the planet has flourished as an important center of trade.
+080:Omega:085:01:Settlers began negotiations with the New Republic in an attempt to sever ties with the defeated Empire .
+081:Tigris:284:01:It was during his diplomatic mission on Tigris representatives of Leia Organa and Luke Skywalker first encounter with the Noghri , who tried to capture them .
+082:Tizino:472:01:Ultimately Tizino became part of the New Republic , and it was followed by other planets Hull sector , in particular, Vega . 
+083:Tolonius:170:01:During the Yuuzhan Vong War, the planet was conquered by the extragalactic invaders on it raided the New Republic .
+084:Tripani:578:01:When the Yuuzhan Vong were defeated tripanis appealed to the Galactic Alliance that join him if he would help them in the recovery of the planet .
+085:Tumbor:476:01:Learning about the burning of Kashyyyk Alliance tumbors came out of it and during the Second Galactic Civil War, joined the Confederacy, emerging against the Alliance .
+086:Vartas:487:01:Vartas also known as Stigeon - snow-covered planet in the galaxy .
+087:Vega:283:01:During the Clone Wars there was a secret facility where the Lords of the Sith Darth Sidious and Darth Tyranus contained the captive on Mandalore Darth Maul .
+088:Velatastat:170:01:Darth Maul was subsequently released from prison Velatastats from the collective shadow .
+089:Ventauri:236:01:Was later Ventauri used by the Galactic Empire .
+090:Vermini:227:01:Vermini was one of the planets of the outer ring .
+091:Viscus:178:01:Fourteen years after the beginning of the reign of Palpatine, the planet was in a deep economic crisis , which is why its rulers decided to enter into the Galactic Empire , promised her security and prosperity .
+092:Vreetan:531:01:After the establishment of the empire on Vreetan young people in the world had no choice but to join the assault corps , the imperial school of pilot training .
+093:Ymir:560:01:After the establishment of the empire on Vreetan young people go to the capital to go to work in a factory owned by " naval systems Sienar ", which produced stellar fighters .
+094:Zok:560:01:The once Zok's self-sufficient farming communities gradually disappeared , and to replace them come the large mining complexes Empire .
+095:Zhabar:795:01:With the growth of dissatisfaction with the policies pursued by the occupying imperial government , among the inhabitants of the planet began to form cell forces who have chosen the path of struggle with the Empire .
+096:Zander:265:01:Zander - the most effective way to get rid of warts space !
+097:Zagros:262:01:Planet Zagros can be described as a single organism , a living being with a skeleton made ​​of stone and a heart of molten rock .
+098:Gropos:255:01:Species inhabiting the planet , vegetable or animal , from microbes to megalossus - this planet bodies being its internal symbionts and parasites .
+099:Aldebaraan:261:01:Planet Aldebaraan - a celestial body orbiting a star that is not a star or a satellite of another planet , which has sufficient mass to have a shape close to a cyrcle-sphere .
+100:Bespin:560:01:Tilting Bespin axis planetary planets changing seasons with characteristic for each weather conditions .
+101:Cato:260:01:Planet Cato are very different from each other in natural conditions and landscape , ranging from completely oceanic zones ( as Manaan and Camino ) and ending covered by dense forests (as Kashyyyk and Felucia ) .
+102:Centax:151:01:Centax was completely barren desert , not having on its surface almost nothing but rocks and sand .
+103:Chenini:262:01:Chenini in which the entire planetary surface was covered with a giant city .
+104:Corellia:318:01:Corellia has a mixed terrain with various continents , oceans and mountains .
+105:Coruscant:113:01:Coruscant habitable planets have atmospheres of type I, composed mostly of nitrogen and oxygen .
+106:Dagobah:142:01:Gas giants Dagobah which consisted mostly of gas layers, were inhabited by rare, although some of them were used for the extraction of resources .
+107:Dantoonie:268:01:Dantoonie is the object of attention on the part of both factions of Transformers that have sought to use it as a powerful source of energy .
+108:Endor:426:01:Endor is the object of attention on the part of both factions of Transformers , as a means to the final destruction of their opponents .
+109:Geonosis:312:01:Geonosis due to the limited energy resources of no particular interest to the Empire .
+110:Ghomrassen:616:01:Ghomrassenes build on its surface a powerful station , capable of intercepting and drown all terrestrial radio.
+111:Guermessa:142:01:Dark Lord plans with the help of super-guns to shoot down all the moon orbit the Guermessa , and then invented dunes device must give him full control of the mechanism of the tides .
+112:Hoth:210:01:Hoth Guermessa's moon .
+113:Jestefad:428:01:Jestefad extremely rich in energy resources .
+114:Kashyyyk:113:01:Inside the planet Kashyyyk is electric lava, which solidify , forming a beautiful blue energy crystals .
+115:Mustafar:292:01:Going up the faults of the cortex , the lava separates the planet's surface at a fee , which settle the locals - humanoids look very similar to Naboo's people .
+116:Mygeeto:265:01:Mygeeto also inhabited by humanoids that are similar to mustafarlings , but many times larger than their size .
+117:Naboo:312:01:On this planet grow mechanical plant predators - Morfoboty .
+118:Ohmad'un:374:01:Ohmad'un - asteroid , which is center of gambling . Covered with a network of casinos and gambling houses all sorts of types and levels .
+119:Polis:128:01:The exact name and location unknown. Climatic conditions resemble terrestrial tropics .
+120:Massa:124:01:Population - humanoids that can live both on land and in water . Their settlements are located on the sea floor - so they are saved from the power of evil Deseptitrona and his warriors droids .
+121:Rori:502:01:Rori planet whose surface is completely littered with piles of scrap metal and other space junk .
+122:Saleucami:088:01:The main attraction of the planet - Well Transformation ; every creature capable of not only think , but also feel , maybe deep in the well , take any shape , any wish .
+123:Tatooine:162:01:Tatooine planet , surrounded by a belt of small asteroids and meteorite debris ; in appearance resembles Yavin .
+124:Utapau:072:01:The period of its prosperity , however, ended in the most tragic way: every one of the planet's inhabitants were killed during an epidemic "cosmic rust" dangling on the planet wandering asteroids .
+125:Yavin:106:01:The last survivors had to leave a message for future generations zvezdoplavateley with safety warnings .
+126:Ix:072:01:Ix well habitable planet with a highly developed civilization. Was completely absorbed by Kaitain .
+127:Kaitain:142:01:Kaitain habitat Jobis race , where they moved after having been expelled from Caladan .
+128:Jobis:113:01:The land is deserted , but the sea life abound inorganic .
+129:Norfolk:831:01:Norfolk abandoned planet covered ruins of the city , burned during the Empire Wars .
+130:Arrakis:840:01:Population - humanoids - Arrakis - are engaged in that trade "Crystal Death ", which is used for the extraction of slave labor Robots .
+131:Caladan:226:01:Dark Lord finally got access to the energy resources of other planets , the newly rebuilt , at least part of the settlements .
+132:Hades:404:01:Planet Hades of almost continuous thunderstorms ; electrical discharges in the atmosphere it visible even from space .
+133:Cyteen:113:01:Cyteen is in some parallel world where robots dominate teleimpaty .
+134:Tamaran:551:01:beautiful blooming planet . Its inhabitants are very similar to humans, but did not speak , and sing ; their entire civilization is based on acoustic technology, they can create, and destroy by singing .
+135:Atlas:404:01:Planet intelligent animals ; one of the first to come within reach of a giant relay Quintessons , under whose influence among the inhabitants of the planet began a bloody internecine clashes .
+136:Una:400:01:Una and Krypton two neighboring planet inhabited by robots. Many hundreds of years fighting among themselves .
+137:Krypton:567:01:Krypton and Una two neighboring planet inhabited by robots. Many hundreds of years fighting among themselves .
+138:Daxam:600:01:A large planet , having at least two satellites . The planet's surface is mountainous .
+139:Mogo:436:01:A distinctive feature of Mogo - an exceptionally high molecular density of matter .
+140:Oa:529:01:On Oa civilization exists ; Five thousand years ago, her representatives started to explore outer space .
+141:Zorg:142:01:Medical planet , a kind of cosmic " nuthouse " where patients are treated with the entire galaxy .
+142:Peladon:715:01:Information on the whereabouts of this planet and its planetographic characteristics are absent. We only know that there was a colony of black mountaineers .
+143:Sanandy:539:01:Here is the base defense forces of the Cosmic Hilation .
+144:Nova:227:01:Its surface is a continuous layer of adhesive mass, firmly holds everything gets there .
+145:Remus:227:01:All Remus is a huge living computer .
+146:Xindus:709:01:Undefined by mental mind. Esoteric planets Yody shelter appeasement .
+147:Monea:170:01:Monea installed on the surface of the molecular diffuser . For dry attack and defense .
+148:Optera:170:01:Optera another commercial enterprise. on this planet , they sold outdated factory equipment , greatly pollute the atmosphere .
+149:Vusstra:170:01:Vusstra planet eternal mazes .
+150:Hilation:999:01:Hilation the capital of Star Empire .
