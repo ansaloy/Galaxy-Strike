@@ -97,13 +97,14 @@ using System.Collections;
 
 		gamedata.planetsMining = new int[gamedata.planetsLimit,5];
 		int totalMining;
+		gamedata.planetsPPP = new int[gamedata.planetsLimit];
 		int ppp;
 		for (i = 0; i < gamedata.planetsLimit; i++) {
 			radius = gamedata.planetsSize[(gamedata.planetsID[i])];
 			totalMining = Random.Range (radius/20,radius/5); // 100 -25 ходов
 			ppp = Random.Range (totalMining,totalMining*3)-totalMining;
 			gamedata.planetsPPP[i] = ppp;
-			print (""+i+": "+radius+" => "+totalMining);
+			//print (""+i+": "+radius+" => "+totalMining);
 			gamedata.planetsMining[i,4] = (int) Mathf.Max (1f,(totalMining*Random.Range (0.05f,0.1f)));
 			totalMining = (int) Mathf.Max (0,totalMining-gamedata.planetsMining[i,4]);
 			gamedata.planetsMining[i,3] = (int) Mathf.Max (1f,(totalMining*Random.Range (0.1f,0.2f)));
@@ -113,7 +114,7 @@ using System.Collections;
 			gamedata.planetsMining[i,1] = (int) Mathf.Max (1f,(totalMining*Random.Range (0.33f,0.5f)));
 			totalMining = (int) Mathf.Max (0,totalMining-gamedata.planetsMining[i,1]);
 			gamedata.planetsMining[i,0] = (int) Mathf.Max (1f,totalMining);
-			print (""+i+": "+gamedata.planetsResource[i,0]+"/"+gamedata.planetsMining[i,0]+" "+gamedata.planetsResource[i,1]+"/"+gamedata.planetsMining[i,1]+" "+gamedata.planetsResource[i,2]+"/"+gamedata.planetsMining[i,2]+" "+gamedata.planetsResource[i,3]+"/"+gamedata.planetsMining[i,3]+" "+gamedata.planetsResource[i,4]+"/"+gamedata.planetsMining[i,4]+" ");
+			//print (""+i+": "+gamedata.planetsResource[i,0]+"/"+gamedata.planetsMining[i,0]+" "+gamedata.planetsResource[i,1]+"/"+gamedata.planetsMining[i,1]+" "+gamedata.planetsResource[i,2]+"/"+gamedata.planetsMining[i,2]+" "+gamedata.planetsResource[i,3]+"/"+gamedata.planetsMining[i,3]+" "+gamedata.planetsResource[i,4]+"/"+gamedata.planetsMining[i,4]+" ");
 		}
 	}
 

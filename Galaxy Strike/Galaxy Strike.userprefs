@@ -1,6 +1,16 @@
 ﻿<Properties>
+<<<<<<< HEAD
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.Workbench />
+=======
+  <MonoDevelop.Ide.Workspace />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\gamedata.cs">
+    <Files>
+      <File FileName="Assets\Scripts\create.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\gamedata.cs" Line="85" Column="5" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+>>>>>>> FETCH_HEAD
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

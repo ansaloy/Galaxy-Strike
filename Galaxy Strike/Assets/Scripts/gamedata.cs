@@ -10,8 +10,12 @@ public class gamedata : MonoBehaviour {
 
 	public static string[] raceName;
 	public static Sprite[] raceAvatar;
-	public static int[,,] raceShips;
 
+	public static Sprite[] mineralsAvatar;
+
+	public static Sprite[] shipsAvatar;
+	public static int[,,] shipsCost;
+	
 	public static int turn = 0;
 	public static int player = 0; // 0 - humen, 1-4 - computers AI
 
@@ -48,6 +52,9 @@ public class gamedata : MonoBehaviour {
 
 	// завантажує базу даних в ресусні масиви + спрайти
 	public static void LoadData() {
+		raceAvatar = Resources.LoadAll <Sprite> ("Race");
+		mineralsAvatar = Resources.LoadAll <Sprite> ("Minerals");
+		shipsAvatar = Resources.LoadAll <Sprite> ("Ships");
 		planetsSprite = Resources.LoadAll <Sprite> ("");
 		int size = planetsSprite.Length;
 
@@ -65,9 +72,26 @@ public class gamedata : MonoBehaviour {
 			planetsSize[i] = int.Parse (readedData[2]);
 			planetsType[i] = int.Parse (readedData[3]);
 			planetsDescription[i] = readedData[4];
+			//print (planetsDescription[i]);
 			i++;
 		}
 		reader.Close ();
+
+		raceName = new string[5];
+		reader = new StreamReader ("Assets/Data/racenames.txt");
+		for (i = 0; i < 5; i++) raceName[i] = reader.ReadLine();
+		reader.Close ();
+
+		//print (raceName[0]); print (raceName[1]); print (raceName[2]); print (raceName[3]); print (raceName[4]);
+	
+		shipsCost = new int[5,4,5];
+		reader = new StreamReader ("Assets/Data/shipscost.txt");
+		for (int raceNumber = 0; raceNumber < 5; raceNumber++)for(int shipNumber = 0; shipNumber < 4; shipNumber++){
+			readedData = reader.ReadLine ().Split(':');
+			for (int mineralNumber = 0; mineralNumber < 5; mineralNumber++) shipsCost[raceNumber, shipNumber, mineralNumber] = int.Parse (readedData[mineralNumber]);
+		}
+		reader.Close ();
+		//print (shipsCost[1,2,4]);
 	}
 
 
@@ -82,4 +106,4 @@ public class gamedata : MonoBehaviour {
 	void Awake() {
 		LoadData ();
 	}
-}
+}		   
