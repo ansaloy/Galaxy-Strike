@@ -11,12 +11,13 @@ using System.Collections;
 
 	
 	void Start () {
-		PlanetsFit (); // Обраховуємо кількисть планет та розмищуємо їх в грі
+		Generate (); // Обраховуємо кількисть планет та розмищуємо їх в грі
+		gamedata.Save ("sanandy777");
 		DrowPlanets ();
 	}
 	
 
-	void PlanetsFit (){
+	void Generate (){
 		float voneplanet = 4 / 3 * Mathf.PI * Mathf.Pow (100, 3) / planetsMax; // обєм на одну планету
 		gamedata.planetsLimit = (int) (4 / 3 * Mathf.PI * Mathf.Pow (gamedata.spaceLimit, 3) / voneplanet);
 
