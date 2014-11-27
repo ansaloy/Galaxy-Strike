@@ -7,13 +7,24 @@ public class gamedata : MonoBehaviour {
 	void Start (){
 		DontDestroyOnLoad (gameObject);
 	}
-
+	// ВСІ МАСИВИ ЗРОБИТИ МАКСИМАЛЬНОГО РОЗМІРУ Ініціалізувати на 150 планет, 5 гравцыв, 5 ресурсывб 4 корабля
+	// Це знадобиться при старті малого світу на кілька планет, а ЗАВАНТАЖЕННІ ЗБЕРЕЖЕНОГО РАНІШЕ SAVE на быльшу кількість планет.
+	// тому всю ыныцыалызацыю масивыв перенести з ынших скриптыв сюди
 	public static string[] raceName;
 	public static int[,,] shipsCost;
 	
 	public static int turn = 0;
-	public static int player = 0; // 0 - humen, 1-4 - computers AI
+	public static int player = 0; // хто ходить в даний момент 0 - humen, 1-4 - computers AI
 
+	public static int playersCount; // килькисть гравців в згенерованому світі
+
+	public static int[] playersRace = new int[5]; // индекс гравця та индек його раси 0,,4
+	public static int[,] playerResources = new int[5,5]; // корзіна ресурсів 5 позицій
+	public static int[,] playerShips = new int[5,4];     // корзіна короблів гравця 4 позиції
+
+
+	public static float spaceLimit; // константа 50% - 100%    Розмір Галактики для наповнення планетами
+	public static int planetsMax = 150; // максимальна кількість планет в ресурсі
 	public static Sprite [] planetsSprite; // Масив зображень з ресурсів всіх Планет
 	public static string[] planetsName; // Назва планет
 	public static int[] planetsSize; // розмір планети
@@ -31,18 +42,10 @@ public class gamedata : MonoBehaviour {
 	public static int[] planetsPPP; // Производственние Потужности Planets
 
 	public static int[]  plantesOwner;   // кому належіть планета
-	public static int[,] planetsShipsBuilding; // кількість балів накопіченіх на будивніцтво коробля 0,,3
+	public static int[,] planetsShipsBuilding; // кількість балів накопичених на будівництво корабля. увага значення -1 корабель не відмічений галочкою в діалозі для будівництва.
 	public static int[,] planetsShipsFlot; // кількість наявних короблів на пранетах
 
-	public static int playersCount = 2; // килькисть гравців в згенерованому світі
-	public static int[] playersRace; // индекс гравця та индек його раси 0,,4
-
-	public static float spaceLimit = 100; // константа 50% - 100%    Розмір Галактики для наповнення планетами
-	public static int[,] playerResources; // корзіна ресурсив игрока 0,,4
-	public static int[,] playerShips;     // корзіна короблів гравця 0..3
-
-
-	public static int[,] moveShipsFlot; // пересилаемі між планетами кораблі атака або перемищення свого флоту
+	public static int[,] moveShipsFlot; // пересилаемі між планетами кораблі атака або перемищення свого флоту на яку планету і скільки прилетіло
 
 
 	// завантажує базу даних в ресусні масиви + спрайти
@@ -64,7 +67,6 @@ public class gamedata : MonoBehaviour {
 			planetsSize[i] = int.Parse (readedData[2]);
 			planetsType[i] = int.Parse (readedData[3]);
 			planetsDescription[i] = readedData[4];
-			//print (planetsDescription[i]);
 			i++;
 		}
 		reader.Close ();
@@ -82,19 +84,33 @@ public class gamedata : MonoBehaviour {
 		}
 		reader.Close ();
 	}
-
-
+	
 	// зберігає поточній стан грі в файл
 	public static void Save(string fileName) {
 		StreamWriter writer = new StreamWriter ("Assets/Save/"+fileName+".txt");
 		writer.WriteLine ("turn");
 		writer.WriteLine (turn); // номер хода
-		writer.WriteLine ("player");
-		writer.WriteLine (player); // 0 - humen, 1-4 - computers AI
+		writer.WriteLine ("playersCount"); // килькисть гравців в згенерованому світі
+		writer.WriteLine (playersCount);
+		writer.WriteLine ("playersRace"); // якої раси гравці
+		string str = "";
+		for (int i = 0; i < playersCount; i++) str += playersRace[i].ToString() + ":";
+		str = str.Remove (str.Length - 1);
+		writer.WriteLine (str);
+		writer.WriteLine ("playerResources"); 
+		for (int i = 0; i < playersCount; i++){ // корзіна ресурсив игрока 0,,4
+			str = playerResources[i,0].ToString()+":"+playerResources[i,1].ToString()+":"+playerResources[i,2].ToString()+":"+playerResources[i,3].ToString()+":"+playerResources[i,4].ToString();
+			writer.WriteLine (str);
+		}
+		writer.WriteLine ("playerShips"); 
+		for (int i = 0; i < playersCount; i++){// корзіна короблів гравця 0..3
+			str = playerShips[i,0].ToString()+":"+playerShips[i,1].ToString()+":"+playerShips[i,2].ToString()+":"+playerShips[i,3].ToString();
+			writer.WriteLine (str);
+		}
 		writer.WriteLine ("planetsLimit");
 		writer.WriteLine (planetsLimit); // количество планет в генерірованом мире
 		writer.WriteLine ("planetsID");
-		string str = "";
+		str = "";
 		for (int i = 0; i < planetsLimit; i++) str += planetsID[i].ToString() + ":"; // Індекси планет в генерованому світі з загальної ресурсної бази планет 
 		str = str.Remove (str.Length - 1);
 		writer.WriteLine (str);
@@ -138,7 +154,11 @@ public class gamedata : MonoBehaviour {
 			str = planetsShipsFlot[i,0].ToString()+":"+planetsShipsFlot[i,1].ToString()+":"+planetsShipsFlot[i,2].ToString()+":"+planetsShipsFlot[i,3].ToString();
 			writer.WriteLine (str);
 		}
-
+		writer.WriteLine ("moveShipsFlot");
+		for (int i = 0; i < planetsLimit; i++){ // пересилаемі між планетами кораблі атака або перемищення свого флоту на яку планету і скільки прилетіло
+			str = moveShipsFlot[i,0].ToString()+":"+moveShipsFlot[i,1].ToString()+":"+moveShipsFlot[i,2].ToString()+":"+moveShipsFlot[i,3].ToString();
+			writer.WriteLine (str);
+		}
 		writer.Close ();
 	}
 
@@ -150,17 +170,3 @@ public class gamedata : MonoBehaviour {
 		LoadData ();
 	}
 }		   
-
-/*
-
-
-public static int playersCount = 2; // килькисть гравців в згенерованому світі
-public static int[] playersRace; // индекс гравця та индек його раси 0,,4
-
-public static float spaceLimit = 100; // константа 50% - 100%    Розмір Галактики для наповнення планетами
-public static int[,] playerResources; // корзіна ресурсив игрока 0,,4
-public static int[,] playerShips;     // корзіна короблів гравця 0..3
-
-
-public static int[,] moveShipsFlot; // пересилаемі між планетами кораблі атака або перемищення свого флоту
-*/

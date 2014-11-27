@@ -2,32 +2,24 @@
 using System.Collections;
 
  public class create : MonoBehaviour {
-
 	public GameObject prefabPlanets; // Префаб пустий для темпової відмальовки спрайтів Планет
 	GameObject tmp; // Техничний вказивник на обєкт
 
-	int planetsMax = 150; // максимальна кількість планет в ресурсі
-
-
-	
 	void Start () {
 		Generate (); // Обраховуємо кількисть планет та розмищуємо їх в грі
-		gamedata.Save ("sanandy777");
+		gamedata.Save ("start");
 		DrowPlanets ();
 	}
-	
 
 	void Generate (){
-		float voneplanet = 4 / 3 * Mathf.PI * Mathf.Pow (100, 3) / planetsMax; // обєм на одну планету
+		float voneplanet = 4 / 3 * Mathf.PI * Mathf.Pow (100, 3) / gamedata.planetsMax; // обєм на одну планету
 		gamedata.planetsLimit = (int) (4 / 3 * Mathf.PI * Mathf.Pow (gamedata.spaceLimit, 3) / voneplanet);
-
-		// planetsLimit = 7;
 		// Заполнение сгенерированого игрового мира планетами из ресурса 
-		bool [] planetsBit = new bool[planetsMax]; // бит попадания планеты из ресурса в сгенерированый мир игровой сцены
+		bool [] planetsBit = new bool[gamedata.planetsMax]; // бит попадания планеты из ресурса в сгенерированый мир игровой сцены
 		gamedata.planetsID = new int[gamedata.planetsLimit];
 		int i = 0;
 		while (i < gamedata.planetsLimit) {
-			int pos = Random.Range(0, planetsMax);
+			int pos = Random.Range(0, gamedata.planetsMax);
 			if (!planetsBit[pos]){
 				gamedata.planetsID[i] = pos;
 				planetsBit[pos] = true;
@@ -46,9 +38,7 @@ using System.Collections;
 		gamedata.planetsConnection[gamedata.planetsLimit - 1, 1] = gamedata.planetsLimit - 2;
 		gamedata.planetsConnection[gamedata.planetsLimit - 1, 2] = 0;
 		// Заполнение дополнительних связей между планетами
-
 		int connection = (int) Random.Range(gamedata.planetsLimit,gamedata.planetsLimit * 3) / 2; // кількість лінків, що слід утворити
-
 		for(i = 0; i < connection; i++){
 			bool accept = true;
 			int pos1 = 0; int pos2 = 0; // номера планет, для поєднання лінком
@@ -117,6 +107,20 @@ using System.Collections;
 			gamedata.planetsMining[i,0] = (int) Mathf.Max (1f,totalMining);
 			//print (""+i+": "+gamedata.planetsResource[i,0]+"/"+gamedata.planetsMining[i,0]+" "+gamedata.planetsResource[i,1]+"/"+gamedata.planetsMining[i,1]+" "+gamedata.planetsResource[i,2]+"/"+gamedata.planetsMining[i,2]+" "+gamedata.planetsResource[i,3]+"/"+gamedata.planetsMining[i,3]+" "+gamedata.planetsResource[i,4]+"/"+gamedata.planetsMining[i,4]+" ");
 		}
+
+		gamedata.plantesOwner = new int[gamedata.planetsLimit];
+		for (i = 0; i < gamedata.planetsLimit; i++) gamedata.plantesOwner [i] = 8; //вносим признак планети 8 - вільна і нікому не належить. самостійна.
+		i = 0;
+		while (i < gamedata.playersCount){
+			int pos = Random.Range(0, gamedata.planetsLimit);
+			if (gamedata.plantesOwner[pos] == 8){
+				gamedata.plantesOwner[pos] = i;
+				i++;
+			}
+		}
+		gamedata.planetsShipsBuilding = new int[gamedata.planetsLimit, 4]; // скільки накопичилось балів в будівництві кораблів на планетах
+		gamedata.planetsShipsFlot = new int[gamedata.planetsLimit, 4]; // які кораблі на яких планетах
+		gamedata.moveShipsFlot = new int[gamedata.planetsLimit,4];// пересилаемі між планетами кораблі атака або перемищення свого флоту на яку планету і скільки прилетіло
 	}
 
 	void DrowPlanets(){
