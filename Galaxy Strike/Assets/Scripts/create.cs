@@ -108,13 +108,13 @@ using System.Collections;
 			//print (""+i+": "+gamedata.planetsResource[i,0]+"/"+gamedata.planetsMining[i,0]+" "+gamedata.planetsResource[i,1]+"/"+gamedata.planetsMining[i,1]+" "+gamedata.planetsResource[i,2]+"/"+gamedata.planetsMining[i,2]+" "+gamedata.planetsResource[i,3]+"/"+gamedata.planetsMining[i,3]+" "+gamedata.planetsResource[i,4]+"/"+gamedata.planetsMining[i,4]+" ");
 		}
 
-		gamedata.plantesOwner = new int[gamedata.planetsLimit];
-		for (i = 0; i < gamedata.planetsLimit; i++) gamedata.plantesOwner [i] = 8; //вносим признак планети 8 - вільна і нікому не належить. самостійна.
+		gamedata.planetsOwner = new int[gamedata.planetsLimit];
+		for (i = 0; i < gamedata.planetsLimit; i++) gamedata.planetsOwner [i] = -1; //вносим признак планети -1 - вільна і нікому не належить. самостійна.
 		i = 0;
 		while (i < gamedata.playersCount){
 			int pos = Random.Range(0, gamedata.planetsLimit);
-			if (gamedata.plantesOwner[pos] == 8){
-				gamedata.plantesOwner[pos] = i;
+			if (gamedata.planetsOwner[pos] == -1){
+				gamedata.planetsOwner[pos] = i;
 				i++;
 			}
 		}
@@ -126,7 +126,9 @@ using System.Collections;
 	void DrowPlanets(){
 		for (int i = 0; i < gamedata.planetsLimit; i++){
 			tmp = (GameObject)Instantiate (prefabPlanets);
-			tmp.GetComponent<SpriteRenderer> ().sprite = gamedata.planetsSprite[gamedata.planetsID[i]];
+			tmp.transform.Find("Foreground").GetComponent<SpriteRenderer> ().sprite = gamedata.planetsSprite[gamedata.planetsID[i]];
+			float scale = gamedata.planetsSize[gamedata.planetsID[i]]/128f;
+			tmp.transform.Find ("Background").localScale = new Vector3(1.15f*scale,1.15f*scale,0f);
 			tmp.transform.position = gamedata.planetsPosition[i];
 			if (i >= 0 && i <= 9) tmp.name = "00"+i.ToString();
 			if (i > 9 && i <= 99) tmp.name = "0"+i.ToString();

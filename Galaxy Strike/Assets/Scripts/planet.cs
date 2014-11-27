@@ -10,7 +10,11 @@ public class planet : MonoBehaviour {
 	float speedTurn; // скорость вращения
 	float turn = 0; // кут поворота 0 до 360
 
+	int owner = -1; // кому належіть ця планета по замовчуванню -1 нікому
+	int index = -1; // індекс планети
+
 	void Start () {
+		index = int.Parse (name);
 		centerOfPS = transform.position + new Vector3 (Random.Range (-30f, 30f), Random.Range (-30f, 30f), Random.Range (-30f, 30f));
 		axisMoove = new Vector3 (Random.Range (-1f, 1f), Random.Range (-1, 1f), Random.Range (-1f, 1f));
 		speedRotation = Random.Range (0.1f, 3f);
@@ -20,14 +24,19 @@ public class planet : MonoBehaviour {
 
 	void Update () {
 		transform.RotateAround (centerOfPS, axisMoove, speedRotation * Time.deltaTime);
-		if (direction){
+		if (direction) {
 			turn = turn + Time.deltaTime * speedTurn;
 			if (turn > 360) turn = 0;
-		}
-		else {
+		} else {
 			turn = turn - Time.deltaTime * speedTurn;
 			if (turn < 0) turn = 360;
 		} 
 		transform.rotation = Quaternion.Euler (0, 0, turn);
+
+		//зминюємо колbр кільця навколо планети на колір гравця
+		if (owner != gamedata.planetsOwner [index]) {
+			owner = gamedata.planetsOwner [index];
+			transform.Find ("Background").GetComponent<SpriteRenderer> ().color = gamedata.playersColor [owner];
+		}
 	}
 }

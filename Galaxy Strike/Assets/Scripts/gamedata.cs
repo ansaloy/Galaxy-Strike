@@ -16,14 +16,16 @@ public class gamedata : MonoBehaviour {
 	public static int turn = 0;
 	public static int player = 0; // хто ходить в даний момент 0 - humen, 1-4 - computers AI
 
-	public static int playersCount; // килькисть гравців в згенерованому світі
+	public static int playersCount = 2; // килькисть гравців в згенерованому світі
+
+	public static Color[] playersColor = new Color[] {Color.red,Color.blue,Color.green,Color.yellow,Color.cyan}; //Кольори гравців
 
 	public static int[] playersRace = new int[5]; // индекс гравця та индек його раси 0,,4
 	public static int[,] playerResources = new int[5,5]; // корзіна ресурсів 5 позицій
 	public static int[,] playerShips = new int[5,4];     // корзіна короблів гравця 4 позиції
 
 
-	public static float spaceLimit; // константа 50% - 100%    Розмір Галактики для наповнення планетами
+	public static float spaceLimit = 100; // константа 50% - 100%    Розмір Галактики для наповнення планетами
 	public static int planetsMax = 150; // максимальна кількість планет в ресурсі
 	public static Sprite [] planetsSprite; // Масив зображень з ресурсів всіх Планет
 	public static string[] planetsName; // Назва планет
@@ -41,7 +43,7 @@ public class gamedata : MonoBehaviour {
 
 	public static int[] planetsPPP; // Производственние Потужности Planets
 
-	public static int[]  plantesOwner;   // кому належіть планета
+	public static int[]  planetsOwner;   // кому належіть планета
 	public static int[,] planetsShipsBuilding; // кількість балів накопичених на будівництво корабля. увага значення -1 корабель не відмічений галочкою в діалозі для будівництва.
 	public static int[,] planetsShipsFlot; // кількість наявних короблів на пранетах
 
@@ -141,7 +143,7 @@ public class gamedata : MonoBehaviour {
 		writer.WriteLine (str);
 		writer.WriteLine ("plantesOwner");
 		str = "";
-		for (int i = 0; i < planetsLimit; i++) str += plantesOwner[i].ToString() + ":"; // Хто власнік планети, яка раса
+		for (int i = 0; i < planetsLimit; i++) str += planetsOwner[i].ToString() + ":"; // Хто власнік планети, яка раса
 		str = str.Remove (str.Length - 1);
 		writer.WriteLine (str);
 		writer.WriteLine ("planetsShipsBuilding");
