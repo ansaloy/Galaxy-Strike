@@ -1,8 +1,18 @@
 ﻿<Properties>
+<<<<<<< HEAD
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\visualization.cs">
     <Files>
       <File FileName="Assets\Scripts\visualization.cs" Line="10" Column="5" />
+=======
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/visualization.cs">
+    <Files>
+      <File FileName="Assets/logo.cs" Line="9" Column="2" />
+      <File FileName="Assets/Sprites/gameplay.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/gamedata.cs" Line="91" Column="19" />
+      <File FileName="Assets/Scripts/visualization.cs" Line="4" Column="27" />
+>>>>>>> origin/master
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

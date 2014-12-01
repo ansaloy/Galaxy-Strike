@@ -7,7 +7,10 @@ public class visualization : MonoBehaviour {
 
 	void Start () {
 		//gamedata.Save ("start");
+<<<<<<< HEAD
 		//gamedata.Load ("start");
+=======
+>>>>>>> origin/master
 		DrowPlanets ();
 	}
 
