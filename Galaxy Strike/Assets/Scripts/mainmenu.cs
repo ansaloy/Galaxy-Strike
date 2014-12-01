@@ -21,7 +21,8 @@ public class mainmenu : MonoBehaviour {
 	}
 
 	public void StartGame() {
-		Application.LoadLevel (1);
+		gamedata.Generate ();
+		Application.LoadLevel ("Galaxy Strike");
 	}
 
 	public void LoadGame () {

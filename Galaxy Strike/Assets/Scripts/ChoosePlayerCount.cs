@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ChoosePlayerCount : MonoBehaviour {
+public class chooseplayercount : MonoBehaviour {
 
 	UIButton[] buttons;
 	private UIButton selected;
