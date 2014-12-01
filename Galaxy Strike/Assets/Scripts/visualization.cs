@@ -6,12 +6,9 @@ public class visualization : MonoBehaviour {
 	GameObject tmp; // Техничний вказивник на обєкт
 
 	void Start () {
-		//gamedata.Save ("start");
-<<<<<<< HEAD
+		gamedata.Save ("start");
 		//gamedata.Load ("start");
-=======
->>>>>>> origin/master
-		DrowPlanets ();
+		//DrowPlanets ();
 	}
 
 	void DrowPlanets(){

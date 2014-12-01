@@ -21,13 +21,12 @@ public class gamedata : MonoBehaviour {
 	public static int[] playersRace = new int[5]; // индекс гравця та индек його раси 0,,4
 	public static int[,] playerResources = new int[5,5]; // корзіна ресурсів 5 позицій
 	public static int[,] playerShips = new int[5,4];     // корзіна короблів гравця 4 позиції
-
-
+	
 	public static float spaceLimit = 100; // константа 50% - 100%    Розмір Галактики для наповнення планетами
 	public static int planetsMax = 150; // максимальна кількість планет в ресурсі
 	public static Sprite [] planetsSprite; // Масив зображень з ресурсів всіх Планет
 	public static string[] planetsName; // Назва планет
-	public static int[] planetsSize; // розмір планети
+	public static int[] planetsSize; // розмір планети0
 	public static int[] planetsType; // backgrounds menu
 	public static string[] planetsDescription; // Текстовий Опис история планети
 
@@ -87,115 +86,115 @@ public class gamedata : MonoBehaviour {
 	
 	
 	public static void Generate () {
-		float voneplanet = 4 / 3 * Mathf.PI * Mathf.Pow (100, 3) / gamedata.planetsMax; // обєм на одну планету
-		gamedata.planetsLimit = (int) (4 / 3 * Mathf.PI * Mathf.Pow (gamedata.spaceLimit, 3) / voneplanet);
+		float voneplanet = 4 / 3 * Mathf.PI * Mathf.Pow (100, 3) / planetsMax; // обєм на одну планету
+		planetsLimit = (int) (4 / 3 * Mathf.PI * Mathf.Pow (spaceLimit, 3) / voneplanet);
 		// Заполнение сгенерированого игрового мира планетами из ресурса 
-		bool [] planetsBit = new bool[gamedata.planetsMax]; // бит попадания планеты из ресурса в сгенерированый мир игровой сцены
-		gamedata.planetsID = new int[gamedata.planetsLimit];
+		bool [] planetsBit = new bool[planetsMax]; // бит попадания планеты из ресурса в сгенерированый мир игровой сцены
+		planetsID = new int[planetsLimit];
 		int i = 0;
-		while (i < gamedata.planetsLimit) {
-			int pos = Random.Range(0, gamedata.planetsMax);
+		while (i < planetsLimit) {
+			int pos = Random.Range(0, planetsMax);
 			if (!planetsBit[pos]){
-				gamedata.planetsID[i] = pos;
+				planetsID[i] = pos;
 				planetsBit[pos] = true;
 				i++;
 			}
 		}
 		// Заполнение линейних связей между планетами (предыдущий, следующий)
-		gamedata.planetsConnection = new int[gamedata.planetsLimit, 6]; 
-		for (i = 0; i < gamedata.planetsLimit; i++) gamedata.planetsConnection[i, 0] = 2; // записуемо в лічильник звязків 2
-		for (i = 1; i < gamedata.planetsLimit - 1; i++){
-			gamedata.planetsConnection[i, 1] = i - 1;
-			gamedata.planetsConnection[i, 2] = i + 1;
+		planetsConnection = new int[planetsLimit, 6]; 
+		for (i = 0; i < planetsLimit; i++) planetsConnection[i, 0] = 2; // записуемо в лічильник звязків 2
+		for (i = 1; i < planetsLimit - 1; i++){
+			planetsConnection[i, 1] = i - 1;
+			planetsConnection[i, 2] = i + 1;
 		}
-		gamedata.planetsConnection[0, 1] = gamedata.planetsLimit - 1;
-		gamedata.planetsConnection[0, 2] = 1;
-		gamedata.planetsConnection[gamedata.planetsLimit - 1, 1] = gamedata.planetsLimit - 2;
-		gamedata.planetsConnection[gamedata.planetsLimit - 1, 2] = 0;
+		planetsConnection[0, 1] = planetsLimit - 1;
+		planetsConnection[0, 2] = 1;
+		planetsConnection[planetsLimit - 1, 1] = planetsLimit - 2;
+		planetsConnection[planetsLimit - 1, 2] = 0;
 		// Заполнение дополнительних связей между планетами
-		int connection = (int) Random.Range(gamedata.planetsLimit,gamedata.planetsLimit * 3) / 2; // кількість лінків, що слід утворити
+		int connection = (int) Random.Range(planetsLimit,planetsLimit * 3) / 2; // кількість лінків, що слід утворити
 		for(i = 0; i < connection; i++){
 			bool accept = true;
 			int pos1 = 0; int pos2 = 0; // номера планет, для поєднання лінком
 			while (accept){
-				pos1 = Random.Range(0, gamedata.planetsLimit);
-				pos2 = Random.Range(0, gamedata.planetsLimit);
-				if (gamedata.planetsConnection[pos1, 0] < 5 && gamedata.planetsConnection[pos2, 0] < 5) accept = false; // вийти якщо лінк допустимий
+				pos1 = Random.Range(0, planetsLimit);
+				pos2 = Random.Range(0, planetsLimit);
+				if (planetsConnection[pos1, 0] < 5 && planetsConnection[pos2, 0] < 5) accept = false; // вийти якщо лінк допустимий
 				if (pos1 == pos2) accept = true; // продовжити якщо лінк сам на себе
-				for (int j = 1; j <= gamedata.planetsConnection[pos1, 0]; j++) if (gamedata.planetsConnection[pos1,j] == pos2) accept = true; // продовжити лінк на цей номер уже існує з цієї планети
-				for (int j = 1; j <= gamedata.planetsConnection[pos2, 0]; j++) if (gamedata.planetsConnection[pos2,j] == pos1) accept = true; // продовжити лінк на цей номер уже існує з цієї планети
+				for (int j = 1; j <= planetsConnection[pos1, 0]; j++) if (planetsConnection[pos1,j] == pos2) accept = true; // продовжити лінк на цей номер уже існує з цієї планети
+				for (int j = 1; j <= planetsConnection[pos2, 0]; j++) if (planetsConnection[pos2,j] == pos1) accept = true; // продовжити лінк на цей номер уже існує з цієї планети
 			}
-			gamedata.planetsConnection[pos1, 0]++;
-			gamedata.planetsConnection[pos2, 0]++;
-			gamedata.planetsConnection[pos1, gamedata.planetsConnection[pos1, 0]] = pos2;
-			gamedata.planetsConnection[pos2, gamedata.planetsConnection[pos2, 0]] = pos1;
+			planetsConnection[pos1, 0]++;
+			planetsConnection[pos2, 0]++;
+			planetsConnection[pos1, planetsConnection[pos1, 0]] = pos2;
+			planetsConnection[pos2, planetsConnection[pos2, 0]] = pos1;
 		}
 		
-		gamedata.planetsPosition = new Vector3[gamedata.planetsLimit];
-		for (i = 0; i < gamedata.planetsLimit; i++) {
+		planetsPosition = new Vector3[planetsLimit];
+		for (i = 0; i < planetsLimit; i++) {
 			bool outSphere = true;
 			while (outSphere){
-				gamedata.planetsPosition[i].x = Random.Range (-1*(float)gamedata.spaceLimit,(float)gamedata.spaceLimit);
-				gamedata.planetsPosition[i].y = Random.Range (-1*(float)gamedata.spaceLimit,(float)gamedata.spaceLimit);
-				gamedata.planetsPosition[i].z = Random.Range (-1*(float)gamedata.spaceLimit,(float)gamedata.spaceLimit);
-				if (Vector3.Distance(gamedata.planetsPosition[i], Vector3.zero) < (float)gamedata.spaceLimit) outSphere = false;
+				planetsPosition[i].x = Random.Range (-1*(float)spaceLimit,(float)spaceLimit);
+				planetsPosition[i].y = Random.Range (-1*(float)spaceLimit,(float)spaceLimit);
+				planetsPosition[i].z = Random.Range (-1*(float)spaceLimit,(float)spaceLimit);
+				if (Vector3.Distance(planetsPosition[i], Vector3.zero) < (float)spaceLimit) outSphere = false;
 			}
 		}
 		
-		gamedata.planetsResource = new int[gamedata.planetsLimit,5];
+		planetsResource = new int[planetsLimit,5];
 		int radius;
 		int totalMinerals;
-		for (i = 0; i < gamedata.planetsLimit; i++) {
-			radius = gamedata.planetsSize[(gamedata.planetsID[i])];
+		for (i = 0; i < planetsLimit; i++) {
+			radius = planetsSize[(planetsID[i])];
 			totalMinerals = radius*Random.Range (5,15);
 			//print (""+i+": "+radius+" => "+totalMinerals);
-			gamedata.planetsResource[i,4] = (int) (totalMinerals*Random.Range (0.02f,0.2f)); // 5%-20%
-			totalMinerals -= gamedata.planetsResource[i,4];
-			gamedata.planetsResource[i,3] = (int) (totalMinerals*Random.Range (0.1f,0.25f)); // 5%-25% от остатка
-			totalMinerals -= gamedata.planetsResource[i,3];
-			gamedata.planetsResource[i,2] = (int) (totalMinerals*Random.Range (0.15f,0.33f)); // 5%-33% от остатка
-			totalMinerals -= gamedata.planetsResource[i,2];
-			gamedata.planetsResource[i,1] = (int) (totalMinerals*Random.Range (0.2f,0.5f)); // 5%-50% от остатка
-			totalMinerals -= gamedata.planetsResource[i,1];
-			gamedata.planetsResource[i,0] = totalMinerals; // 100% от остатка
-			//print (""+i+": "+gamedata.planetsResource[i,0]+" "+gamedata.planetsResource[i,1]+" "+gamedata.planetsResource[i,2]+" "+gamedata.planetsResource[i,3]+" "+gamedata.planetsResource[i,4]+" ");
+			planetsResource[i,4] = (int) (totalMinerals*Random.Range (0.02f,0.2f)); // 5%-20%
+			totalMinerals -= planetsResource[i,4];
+			planetsResource[i,3] = (int) (totalMinerals*Random.Range (0.1f,0.25f)); // 5%-25% от остатка
+			totalMinerals -= planetsResource[i,3];
+			planetsResource[i,2] = (int) (totalMinerals*Random.Range (0.15f,0.33f)); // 5%-33% от остатка
+			totalMinerals -= planetsResource[i,2];
+			planetsResource[i,1] = (int) (totalMinerals*Random.Range (0.2f,0.5f)); // 5%-50% от остатка
+			totalMinerals -= planetsResource[i,1];
+			planetsResource[i,0] = totalMinerals; // 100% от остатка
+			//print (""+i+": "+planetsResource[i,0]+" "+planetsResource[i,1]+" "+planetsResource[i,2]+" "+planetsResource[i,3]+" "+planetsResource[i,4]+" ");
 		}
 		
-		gamedata.planetsMining = new int[gamedata.planetsLimit,5];
+		planetsMining = new int[planetsLimit,5];
 		int totalMining;
-		gamedata.planetsPPP = new int[gamedata.planetsLimit];
+		planetsPPP = new int[planetsLimit];
 		int ppp;
-		for (i = 0; i < gamedata.planetsLimit; i++) {
-			radius = gamedata.planetsSize[(gamedata.planetsID[i])];
+		for (i = 0; i < planetsLimit; i++) {
+			radius = planetsSize[(planetsID[i])];
 			totalMining = Random.Range (radius/20,radius/5); // 100 -25 ходов
-			ppp = Random.Range (totalMining,totalMining*3)-totalMining;
-			gamedata.planetsPPP[i] = ppp;
+			ppp = Random.Range (4,radius/10);
+			planetsPPP[i] = ppp;
 			//print (""+i+": "+radius+" => "+totalMining);
-			gamedata.planetsMining[i,4] = (int) Mathf.Max (1f,(totalMining*Random.Range (0.05f,0.1f)));
-			totalMining = (int) Mathf.Max (0,totalMining-gamedata.planetsMining[i,4]);
-			gamedata.planetsMining[i,3] = (int) Mathf.Max (1f,(totalMining*Random.Range (0.1f,0.2f)));
-			totalMining = (int) Mathf.Max (0,totalMining-gamedata.planetsMining[i,3]);
-			gamedata.planetsMining[i,2] = (int) Mathf.Max (1f,(totalMining*Random.Range (0.2f,0.33f)));
-			totalMining = (int) Mathf.Max (0,totalMining-gamedata.planetsMining[i,2]);
-			gamedata.planetsMining[i,1] = (int) Mathf.Max (1f,(totalMining*Random.Range (0.33f,0.5f)));
-			totalMining = (int) Mathf.Max (0,totalMining-gamedata.planetsMining[i,1]);
-			gamedata.planetsMining[i,0] = (int) Mathf.Max (1f,totalMining);
-			//print (""+i+": "+gamedata.planetsResource[i,0]+"/"+gamedata.planetsMining[i,0]+" "+gamedata.planetsResource[i,1]+"/"+gamedata.planetsMining[i,1]+" "+gamedata.planetsResource[i,2]+"/"+gamedata.planetsMining[i,2]+" "+gamedata.planetsResource[i,3]+"/"+gamedata.planetsMining[i,3]+" "+gamedata.planetsResource[i,4]+"/"+gamedata.planetsMining[i,4]+" ");
+			planetsMining[i,4] = (int) Mathf.Max (1f,(totalMining*Random.Range (0.05f,0.1f)));
+			totalMining = (int) Mathf.Max (0,totalMining-planetsMining[i,4]);
+			planetsMining[i,3] = (int) Mathf.Max (1f,(totalMining*Random.Range (0.1f,0.2f)));
+			totalMining = (int) Mathf.Max (0,totalMining-planetsMining[i,3]);
+			planetsMining[i,2] = (int) Mathf.Max (1f,(totalMining*Random.Range (0.2f,0.33f)));
+			totalMining = (int) Mathf.Max (0,totalMining-planetsMining[i,2]);
+			planetsMining[i,1] = (int) Mathf.Max (1f,(totalMining*Random.Range (0.33f,0.5f)));
+			totalMining = (int) Mathf.Max (0,totalMining-planetsMining[i,1]);
+			planetsMining[i,0] = (int) Mathf.Max (1f,totalMining);
+			//print (""+i+": "+planetsResource[i,0]+"/"+planetsMining[i,0]+" "+planetsResource[i,1]+"/"+planetsMining[i,1]+" "+planetsResource[i,2]+"/"+planetsMining[i,2]+" "+planetsResource[i,3]+"/"+planetsMining[i,3]+" "+planetsResource[i,4]+"/"+planetsMining[i,4]+" ");
 		}
 		
-		gamedata.planetsOwner = new int[gamedata.planetsLimit];
-		for (i = 0; i < gamedata.planetsLimit; i++) gamedata.planetsOwner [i] = -1; //вносим признак планети -1 - вільна і нікому не належить. самостійна.
+		planetsOwner = new int[planetsLimit];
+		for (i = 0; i < planetsLimit; i++) planetsOwner [i] = -1; //вносим признак планети -1 - вільна і нікому не належить. самостійна.
 		i = 0;
-		while (i < gamedata.playersCount){
-			int pos = Random.Range(0, gamedata.planetsLimit);
-			if (gamedata.planetsOwner[pos] == -1){
-				gamedata.planetsOwner[pos] = i;
+		while (i < playersCount){
+			int pos = Random.Range(0, planetsLimit);
+			if (planetsOwner[pos] == -1){
+				planetsOwner[pos] = i;
 				i++;
 			}
 		}
-		gamedata.planetsShipsBuilding = new int[gamedata.planetsLimit, 4]; // скільки накопичилось балів в будівництві кораблів на планетах
-		gamedata.planetsShipsFlot = new int[gamedata.planetsLimit, 4]; // які кораблі на яких планетах
-		gamedata.moveShipsFlot = new int[gamedata.planetsLimit,4];// пересилаемі між планетами кораблі атака або перемищення свого флоту на яку планету і скільки прилетіло
+		planetsShipsBuilding = new int[planetsLimit, 4]; // скільки накопичилось балів в будівництві кораблів на планетах
+		planetsShipsFlot = new int[planetsLimit, 4]; // які кораблі на яких планетах
+		moveShipsFlot = new int[planetsLimit,4];// пересилаемі між планетами кораблі атака або перемищення свого флоту на яку планету і скільки прилетіло
 	}
 
 	// зберігає поточній стан грі в файл
@@ -254,7 +253,7 @@ public class gamedata : MonoBehaviour {
 		writer.WriteLine (str);
 		writer.WriteLine ("plantesOwner");
 		str = "";
-		for (int i = 0; i < planetsLimit; i++) str += planetsOwner[i].ToString() + ":"; // Хто власнік планети, яка раса
+		for (int i = 0; i < planetsLimit; i++) str += planetsOwner[i].ToString() + ":"; // Хто власник планети, який гравець
 		str = str.Remove (str.Length - 1);
 		writer.WriteLine (str);
 		writer.WriteLine ("planetsShipsBuilding");
@@ -313,9 +312,97 @@ public class gamedata : MonoBehaviour {
 			playerShips[i,3] = int.Parse(strSplit[3]);
 		}
 
+		reader.ReadLine(); // количество планет в генерірованом мире
+		str = reader.ReadLine();
+		planetsLimit = int.Parse (str);
 
-		//print (playerShips[0,3]);
-		//print (playerShips[1,3]);
+		planetsID = new int[planetsLimit];
+		reader.ReadLine(); // Індекси планет в генерованому світі з загальної ресурсної бази планет 
+		strSplit = reader.ReadLine().Split(':');
+		for (int i = 0; i < planetsLimit; i++) planetsID[i] = int.Parse(strSplit[i]);
+
+		planetsConnection = new int[planetsLimit, 6]; 
+		reader.ReadLine(); // Міжпланетні Звязки 
+		for (int i = 0; i < planetsLimit; i++){
+			strSplit = reader.ReadLine().Split(':');
+			planetsConnection[i,0] = int.Parse(strSplit[0]);
+			planetsConnection[i,1] = int.Parse(strSplit[1]);
+			planetsConnection[i,2] = int.Parse(strSplit[2]);
+			planetsConnection[i,3] = int.Parse(strSplit[3]);
+			planetsConnection[i,4] = int.Parse(strSplit[4]);
+			planetsConnection[i,5] = int.Parse(strSplit[5]);
+		}
+
+		planetsPosition = new Vector3[planetsLimit];
+		reader.ReadLine(); // Координати планет в 3Д просторі
+		for (int i = 0; i < planetsLimit; i++){
+			strSplit = reader.ReadLine().Split(':');
+			planetsPosition[i].x = float.Parse(strSplit[0]);
+			planetsPosition[i].y = float.Parse(strSplit[1]);
+			planetsPosition[i].z = float.Parse(strSplit[2]);
+		}
+
+		planetsResource = new int[planetsLimit,5];
+		reader.ReadLine();  // Ресурсив на планеті внедрах
+		for (int i = 0; i < planetsLimit; i++) {
+			strSplit = reader.ReadLine().Split(':');
+			planetsResource[i,0] = int.Parse(strSplit[0]);
+			planetsResource[i,1] = int.Parse(strSplit[1]);
+			planetsResource[i,2] = int.Parse(strSplit[2]);
+			planetsResource[i,3] = int.Parse(strSplit[3]);
+			planetsResource[i,4] = int.Parse(strSplit[4]);
+		}
+
+		planetsMining = new int[planetsLimit,5];
+		reader.ReadLine();  // Видобуток ресурсив на планеті в турн
+		for (int i = 0; i < planetsLimit; i++) {
+			strSplit = reader.ReadLine().Split(':');
+			planetsMining[i,0] = int.Parse(strSplit[0]);
+			planetsMining[i,1] = int.Parse(strSplit[1]);
+			planetsMining[i,2] = int.Parse(strSplit[2]);
+			planetsMining[i,3] = int.Parse(strSplit[3]);
+			planetsMining[i,4] = int.Parse(strSplit[4]);
+		}
+
+		planetsPPP = new int[planetsLimit];
+		reader.ReadLine(); // Производственние Потужности Planets
+		strSplit = reader.ReadLine().Split(':');
+		for (int i = 0; i < planetsLimit; i++) planetsPPP[i] = int.Parse(strSplit[i]);
+
+		planetsOwner = new int[planetsLimit];
+		reader.ReadLine(); // Хто власник планети, який гравець
+		strSplit = reader.ReadLine().Split(':');
+		for (int i = 0; i < planetsLimit; i++) planetsOwner[i] = int.Parse(strSplit[i]);
+
+		planetsShipsBuilding = new int[planetsLimit, 4];
+		reader.ReadLine(); // кількість балів накопіченіх на будивніцтво коробля
+		for (int i = 0; i < planetsLimit; i++) {
+			strSplit = reader.ReadLine().Split(':');
+			planetsShipsBuilding[i,0] = int.Parse(strSplit[0]);
+			planetsShipsBuilding[i,1] = int.Parse(strSplit[1]);
+			planetsShipsBuilding[i,2] = int.Parse(strSplit[2]);
+			planetsShipsBuilding[i,3] = int.Parse(strSplit[3]);
+		}
+
+		planetsShipsFlot = new int[planetsLimit, 4];
+		reader.ReadLine(); // кількість наявних короблів на пранетах
+		for (int i = 0; i < planetsLimit; i++) {
+			strSplit = reader.ReadLine().Split(':');
+			planetsShipsFlot[i,0] = int.Parse(strSplit[0]);
+			planetsShipsFlot[i,1] = int.Parse(strSplit[1]);
+			planetsShipsFlot[i,2] = int.Parse(strSplit[2]);
+			planetsShipsFlot[i,3] = int.Parse(strSplit[3]);
+		}
+
+		moveShipsFlot = new int[planetsLimit, 4];
+		reader.ReadLine(); ;// пересилаемі між планетами кораблі атака або перемищення свого флоту на яку планету і скільки прилетіло
+		for (int i = 0; i < planetsLimit; i++) {
+			strSplit = reader.ReadLine().Split(':');
+			moveShipsFlot[i,0] = int.Parse(strSplit[0]);
+			moveShipsFlot[i,1] = int.Parse(strSplit[1]);
+			moveShipsFlot[i,2] = int.Parse(strSplit[2]);
+			moveShipsFlot[i,3] = int.Parse(strSplit[3]);
+		}
 
 		reader.Close ();
 	}

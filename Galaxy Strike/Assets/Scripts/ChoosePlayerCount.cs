@@ -14,6 +14,7 @@ public class chooseplayercount : MonoBehaviour {
 			select.defaultColor = Color.blue;
 			selected = select;
 			gamedata.playersCount = int.Parse (selected.name);
+			gamedata.playersRace = new int[gamedata.playersCount];
 		}
 	}
 
