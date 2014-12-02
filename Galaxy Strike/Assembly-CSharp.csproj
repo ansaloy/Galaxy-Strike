@@ -184,6 +184,7 @@
      <Compile Include="Assets\Scripts\controller.cs" />
      <Compile Include="Assets\Scripts\fileitem.cs" />
      <Compile Include="Assets\Scripts\fileview.cs" />
+     <Compile Include="Assets\Scripts\foregroundplanet.cs" />
      <Compile Include="Assets\Scripts\galaxysize.cs" />
      <Compile Include="Assets\Scripts\gamedata.cs" />
      <Compile Include="Assets\Scripts\gameplay.cs" />
