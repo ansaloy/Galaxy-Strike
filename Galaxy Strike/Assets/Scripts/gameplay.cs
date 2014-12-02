@@ -23,7 +23,8 @@ public class gameplay : MonoBehaviour {
 		}
 
 		// Planets Build Ships
-		int deltaPPP;
+		int deltaPPP; 
+
 		for (int i = 0; i < gamedata.planetsLimit; i++) if (gamedata.planetsOwner[i] == gamedata.player) {
 			deltaPPP = gamedata.planetsPPP[i]; 
 			// додаткова прибавка потужностей на будівніцтво кораблів в в разі простою видобутку
@@ -40,6 +41,32 @@ public class gameplay : MonoBehaviour {
 					if (gamedata.planetsShipsFlag[i,3] && deltaPPP > 0) {gamedata.planetsShipsBuilding[i,3]++; deltaPPP--;}
 				}
 			}
+			int buildedShips = 0;
+			int race = gamedata.playersRace[gamedata.player]; //  якої раси гравець
+			if (gamedata.planetsShipsFlag[i,0]) buildedShips = Mathf.Abs(gamedata.planetsShipsBuilding[i,0] / 10); else buildedShips = 0; // кількисть кораблів 0-го ТИПУ для побудови з накопіченіх ППП
+			while (buildedShips > 0){ //  Будуємо кораблі 0-го типу
+				if (gamedata.playerResources[gamedata.player,0] >= gamedata.shipsCost[race,0,0] && gamedata.playerResources[gamedata.player,1] >= gamedata.shipsCost[race,0,1] && gamedata.playerResources[gamedata.player,2] >= gamedata.shipsCost[race,0,2] && gamedata.playerResources[gamedata.player,3] >= gamedata.shipsCost[race,0,3] && gamedata.playerResources[gamedata.player,4] >= gamedata.shipsCost[race,0,4]){
+					gamedata.playerShips[gamedata.player,0]++;
+					for(int j=0; j < 5; j++) gamedata.playerResources[gamedata.player,j] -= gamedata.shipsCost[race,0,j];
+				}
+			}
+
+
+
+			/*
+			buildedShips = Mathf.Abs(gamedata.planetsShipsBuilding[i,0] / 20); // кількисть кораблів 1-го ТИПУ для побудови з накопіченіх ППП
+			while (buildedShips > 0){ //  Будуємо кораблі 0-го типу
+				if (gamedata.playerResources[gamedata.player,0] >= gamedata.shipsCost[race,0,0] && gamedata.playerResources[gamedata.player,1] >= gamedata.shipsCost[race,0,1] && gamedata.playerResources[gamedata.player,2] >= gamedata.shipsCost[race,0,2] && gamedata.playerResources[gamedata.player,3] >= gamedata.shipsCost[race,0,3] && gamedata.playerResources[gamedata.player,4] >= gamedata.shipsCost[race,0,4]){
+					gamedata.playerShips[gamedata.player,0]++;
+					for(int j=0; j < 5; j++) gamedata.playerResources[gamedata.player,j] -= gamedata.shipsCost[race,0,j];
+				}
+			}
+			*/
+
+
+
+
+		
 
 		}
 	}

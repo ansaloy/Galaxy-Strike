@@ -9,7 +9,7 @@ public class gamedata : MonoBehaviour {
 	}
 
 	public static string[] raceName;
-	public static int[,,] shipsCost;
+	public static int[,,] shipsCost; // раса,корабль,ресурс
 	
 	public static int turn = 0;
 	public static int player = 0; // хто ходить в даний момент 0 - humen, 1-4 - computers AI

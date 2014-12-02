@@ -15,7 +15,7 @@ public class planet : MonoBehaviour {
 
 	void Start () {
 		index = int.Parse (name);
-		centerOfPS = transform.position + new Vector3 (Random.Range (-30f, 30f), Random.Range (-30f, 30f), Random.Range (-30f, 30f));
+		centerOfPS = transform.position + new Vector3 (Random.Range (-20f, 20f), Random.Range (-20f, 20f), Random.Range (-20f, 20f));
 		axisMoove = new Vector3 (Random.Range (-1f, 1f), Random.Range (-1, 1f), Random.Range (-1f, 1f));
 		speedRotation = Random.Range (0.1f, 3f);
 		if (Random.Range(0,2) == 0) direction = true;
