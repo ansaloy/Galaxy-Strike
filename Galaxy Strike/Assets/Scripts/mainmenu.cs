@@ -25,9 +25,16 @@ public class mainmenu : MonoBehaviour {
 		Application.LoadLevel ("Galaxy Strike");
 	}
 
-	public void LoadGame () {
+	public void LoadGameMenu () {
 		HideMainMenu ();
 		loadGameMenu.SetActive(true);
+	}
+
+	public void LoadGame() {
+		if (fileview.selected != null) {
+			gamedata.Load (fileview.selected);
+			Application.LoadLevel("Galaxy Strike");
+		}
 	}
 
 	public void Quit() {
