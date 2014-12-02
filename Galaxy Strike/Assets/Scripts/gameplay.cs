@@ -22,11 +22,12 @@ public class gameplay : MonoBehaviour {
 			} 
 		}
 		// Planets Build Ships
+		for (int i = 0; i < gamedata.planetsLimit; i++) if (gamedata.planetsOwner[i] == gamedata.player) {
 
 
 
 
-
+		}
 	}
 
 	//функція викликається по завершенню хода ігрока 

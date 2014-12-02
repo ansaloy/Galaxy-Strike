@@ -15,6 +15,7 @@ public class chooseplayercount : MonoBehaviour {
 			selected = select;
 			gamedata.playersCount = int.Parse (selected.name);
 			gamedata.playersRace = new int[gamedata.playersCount];
+			for (int i=0; i < gamedata.playersCount; i++) gamedata.playersRace[i] = Random.Range(0,6); // !!! тимчасове заповнення різними расами гравців
 		}
 	}
 
@@ -27,5 +28,4 @@ public class chooseplayercount : MonoBehaviour {
 		buttons = gameObject.GetComponentsInChildren<UIButton> ();
 		SelectButton (buttons[1]);
 	}
-
 }

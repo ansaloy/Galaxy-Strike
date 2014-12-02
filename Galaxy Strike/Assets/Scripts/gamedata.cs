@@ -41,6 +41,7 @@ public class gamedata : MonoBehaviour {
 	public static int[] planetsPPP; // Производственние Потужности Planets
 
 	public static int[]  planetsOwner;   // кому належіть планета
+	public static bool[,] planetsShipsFlag; // флаг признак галочка будівництва даного корабля на планеті
 	public static int[,] planetsShipsBuilding; // кількість балів накопичених на будівництво корабля. увага значення -1 корабель не відмічений галочкою в діалозі для будівництва.
 	public static int[,] planetsShipsFlot; // кількість наявних короблів на пранетах
 
@@ -192,8 +193,24 @@ public class gamedata : MonoBehaviour {
 				i++;
 			}
 		}
+
+		planetsShipsFlag = new bool[planetsLimit, 4];
+		for (i = 0; i < planetsLimit; i++){
+			planetsShipsFlag[i,0] = true;
+			planetsShipsFlag[i,1] = true;
+			planetsShipsFlag[i,2] = true;
+			planetsShipsFlag[i,3] = true;
+		}
+
 		planetsShipsBuilding = new int[planetsLimit, 4]; // скільки накопичилось балів в будівництві кораблів на планетах
 		planetsShipsFlot = new int[planetsLimit, 4]; // які кораблі на яких планетах
+		for (i = 0; i < planetsLimit; i++){
+			radius = planetsSize[(planetsID[i])];
+			planetsShipsFlot[i,0] = (int) Random.Range(0.5f, radius / 50);
+			planetsShipsFlot[i,1] = (int) Random.Range(0.25f, radius / 100);
+			planetsShipsFlot[i,2] = (int) Random.Range(0.15f, radius / 150);
+			planetsShipsFlot[i,3] = (int) Random.Range(0.1f, radius / 250);
+		}
 		moveShipsFlot = new int[planetsLimit,4];// пересилаемі між планетами кораблі атака або перемищення свого флоту на яку планету і скільки прилетіло
 	}
 
@@ -256,6 +273,14 @@ public class gamedata : MonoBehaviour {
 		for (int i = 0; i < planetsLimit; i++) str += planetsOwner[i].ToString() + ":"; // Хто власник планети, який гравець
 		str = str.Remove (str.Length - 1);
 		writer.WriteLine (str);
+		writer.WriteLine ("planetsShipsFlag");  // Флаг будівництва корабля
+		for (int i = 0; i < planetsLimit; i++) {
+			if (planetsShipsFlag[i,0]) str = "1:"; else str = "0:";
+			if (planetsShipsFlag[i,1]) str += "1:"; else str += "0:";
+			if (planetsShipsFlag[i,2]) str += "1:"; else str += "0:";
+			if (planetsShipsFlag[i,3]) str += "1"; else str += "0";
+			writer.WriteLine (str);
+		}
 		writer.WriteLine ("planetsShipsBuilding");
 		for (int i = 0; i < planetsLimit; i++){ // кількість балів накопіченіх на будивніцтво коробля
 			str = planetsShipsBuilding[i,0].ToString()+":"+planetsShipsBuilding[i,1].ToString()+":"+planetsShipsBuilding[i,2].ToString()+":"+planetsShipsBuilding[i,3].ToString();
@@ -373,6 +398,16 @@ public class gamedata : MonoBehaviour {
 		reader.ReadLine(); // Хто власник планети, який гравець
 		strSplit = reader.ReadLine().Split(':');
 		for (int i = 0; i < planetsLimit; i++) planetsOwner[i] = int.Parse(strSplit[i]);
+
+		planetsShipsFlag = new bool[planetsLimit, 4];
+		reader.ReadLine();// Флаг будівництва корабля
+		for (int i = 0; i < planetsLimit; i++) {
+			strSplit = reader.ReadLine().Split(':');
+			if (strSplit[0] == "1") planetsShipsFlag[i,0] = true;
+			if (strSplit[1] == "1") planetsShipsFlag[i,1] = true;
+			if (strSplit[2] == "1") planetsShipsFlag[i,2] = true;
+			if (strSplit[3] == "1") planetsShipsFlag[i,3] = true;
+		}
 
 		planetsShipsBuilding = new int[planetsLimit, 4];
 		reader.ReadLine(); // кількість балів накопіченіх на будивніцтво коробля
