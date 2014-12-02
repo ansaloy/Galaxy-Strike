@@ -183,6 +183,7 @@
      <Compile Include="Assets\Scripts\chooseplayercount.cs" />
      <Compile Include="Assets\Scripts\controller.cs" />
      <Compile Include="Assets\Scripts\fileitem.cs" />
+     <Compile Include="Assets\Scripts\fileview.cs" />
      <Compile Include="Assets\Scripts\galaxysize.cs" />
      <Compile Include="Assets\Scripts\gamedata.cs" />
      <Compile Include="Assets\Scripts\gameplay.cs" />
@@ -190,7 +191,6 @@
      <Compile Include="Assets\Scripts\mainmenu.cs" />
      <Compile Include="Assets\Scripts\planet.cs" />
      <Compile Include="Assets\Scripts\visualization.cs" />
-     <Compile Include="Assets\fileview.cs" />
      <None Include="Assets\NGUI\Examples\Shaders\Unlit - Depth Cutout.shader" />
      <None Include="Assets\NGUI\ReadMe - 3.6.8.txt" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Text 2.shader" />
@@ -212,11 +212,12 @@
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Premultiplied Colored 2.shader" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Text 3.shader" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Packed 2.shader" />
-     <None Include="Assets\Save\start.txt" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Packed 1.shader" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Premultiplied Colored 1.shader" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Premultiplied Colored.shader" />
+     <None Include="Assets\Save\2014-12-01.txt" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Colored.shader" />
+     <None Include="Assets\Save\2014-12-02.txt" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Text.shader" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Packed.shader" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Packed 3.shader" />
