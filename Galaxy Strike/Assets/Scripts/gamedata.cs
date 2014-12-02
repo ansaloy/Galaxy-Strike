@@ -42,7 +42,7 @@ public class gamedata : MonoBehaviour {
 
 	public static int[]  planetsOwner;   // кому належіть планета
 	public static bool[,] planetsShipsFlag; // флаг признак галочка будівництва даного корабля на планеті
-	public static int[,] planetsShipsBuilding; // кількість балів накопичених на будівництво корабля. увага значення -1 корабель не відмічений галочкою в діалозі для будівництва.
+	public static int[,] planetsShipsBuilding; // кількість балів накопичених на будівництво корабля. 
 	public static int[,] planetsShipsFlot; // кількість наявних короблів на пранетах
 
 	public static int[,] moveShipsFlot; // пересилаемі між планетами кораблі атака або перемищення свого флоту на яку планету і скільки прилетіло
