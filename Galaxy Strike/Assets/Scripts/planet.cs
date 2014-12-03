@@ -20,6 +20,15 @@ public class planet : MonoBehaviour {
 		speedRotation = Random.Range (0.1f, 3f);
 		if (Random.Range(0,2) == 0) direction = true;
 		speedTurn = Random.Range (1f, 3f);
+		if (gamedata.planetsOwner [index] != -1) {
+			ChangeBackground ();
+		}
+	}
+
+	void ChangeBackground() {
+		transform.Find("Background").gameObject.SetActive(true);
+		owner = gamedata.planetsOwner [index];
+		transform.Find ("Background").GetComponent<SpriteRenderer> ().color = gamedata.playersColor [owner];
 	}
 
 	void Update () {
@@ -35,8 +44,12 @@ public class planet : MonoBehaviour {
 
 		//зминюємо колbр кільця навколо планети на колір гравця
 		if (owner != gamedata.planetsOwner [index]) {
+<<<<<<< Updated upstream
 			owner = gamedata.planetsOwner [index];
 			transform.Find ("Background").GetComponent<SpriteRenderer> ().color = gamedata.playersColor [owner];
+=======
+			ChangeBackground();
+>>>>>>> Stashed changes
 		}
 	}
 }

@@ -17,12 +17,31 @@ public class mainmenu : MonoBehaviour {
 
 	public void NewGame() {
 		HideMainMenu ();
+		chooserace[] btns = newGameMenu.GetComponentsInChildren<chooserace> ();
+		for (int i = 0; i < gamedata.playersCount; i++) {
+			btns[i].selected = gamedata.playersRace[i];
+		}
 		newGameMenu.SetActive (true);
 	}
 
 	public void StartGame() {
-		gamedata.Generate ();
-		Application.LoadLevel ("Galaxy Strike");
+		chooserace[] btns = newGameMenu.GetComponentsInChildren<chooserace> ();
+		int idx = 0;
+		foreach (chooserace cr in btns) {
+			if (cr.selected != -1) {
+				gamedata.playersRace[idx] = cr.selected;
+				++idx;
+			}
+		}
+		gamedata.playersCount = idx;
+		while ( idx < gamedata.playersRace.Length) {
+			gamedata.playersRace[idx] = -1;
+			idx++;
+		}
+		if ( gamedata.playersCount != 0 ) {
+			gamedata.Generate ();
+			Application.LoadLevel ("Galaxy Strike");
+		}
 	}
 
 	public void LoadGameMenu () {

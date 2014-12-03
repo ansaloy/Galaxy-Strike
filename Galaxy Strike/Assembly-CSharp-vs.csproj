@@ -181,6 +181,7 @@
      <Compile Include="Assets\NGUI\Scripts\UI\UITooltip.cs" />
      <Compile Include="Assets\NGUI\Scripts\UI\UIViewport.cs" />
      <Compile Include="Assets\Scripts\chooseplayercount.cs" />
+     <Compile Include="Assets\Scripts\chooserace.cs" />
      <Compile Include="Assets\Scripts\controller.cs" />
      <Compile Include="Assets\Scripts\fileitem.cs" />
      <Compile Include="Assets\Scripts\fileview.cs" />
