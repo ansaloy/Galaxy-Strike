@@ -2,10 +2,6 @@
 using System.Collections;
 
 public class planet : MonoBehaviour {
-
-	public static GameObject selected = null;
-	static GameObject oldSelection;
-
 	Vector3 centerOfPS; // центр оборота
 	Vector3 axisMoove; // Вектор направления движения планеты
 	float speedRotation; // скорость оборота по траектории
@@ -41,11 +37,6 @@ public class planet : MonoBehaviour {
 		if (owner != gamedata.planetsOwner [index]) {
 			owner = gamedata.planetsOwner [index];
 			transform.Find ("Background").GetComponent<SpriteRenderer> ().color = gamedata.playersColor [owner];
-		}
-
-		if (oldSelection != selected && selected == gameObject) {
-			oldSelection = selected;
-			print (gameObject.name);
 		}
 	}
 }

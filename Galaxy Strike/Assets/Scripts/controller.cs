@@ -15,17 +15,24 @@ public class controller : MonoBehaviour {
 	int cameraInertion;
 	Vector3 cameraPosition;
 
+	RaycastHit hit;
+	float timeSaved = 0f;
+	int cameraTracker = 0;
+	Vector3 lerpStart, lerpEnd;
+
+
 	void Update () {
 		Ray ray1 = Camera.main.ScreenPointToRay (Input.mousePosition);
 		Ray ray2 = Camera.main.ScreenPointToRay (Input.mousePosition);	
 		if (Input.touchCount == 1 || Input.mousePresent) {
-			if (Input.GetMouseButtonDown (1)) {
-				startpoint = ray1.GetPoint (10);
+			if (Input.GetMouseButtonDown (0)) {
+				startpoint = ray1.GetPoint (100);
 				startpoint.z = 0;
 				panning = true;
+				if (timeSaved == 0f) timeSaved = Time.time;
 			}
 			if(panning){
-				endpoint = ray2.GetPoint (10); 
+				endpoint = ray2.GetPoint (100); 
 				endpoint.z = 0;
 				dist = Mathf.Clamp01(Vector3.Distance(endpoint, startpoint));
 				
@@ -36,8 +43,28 @@ public class controller : MonoBehaviour {
 					transform.position = pos;
 				}
 			}
-			if(Input.GetMouseButtonUp(1))panning = false;
+			if(Input.GetMouseButtonUp(0)){
+				panning = false;
+				if (Time.time - timeSaved < 0.2f){
+					if (Physics.Raycast(ray1, out hit)) if (hit.collider != null){
+						print (hit.transform.parent.name);
+						lerpStart = transform.position;
+						lerpEnd = hit.transform.position - new Vector3(0,0,3);
+						cameraTracker = 25;
+					}
+				}
+				timeSaved = 0f;
+			}
 		}
+
+		if (cameraTracker > 0){
+
+			transform.position = Vector3.Lerp(lerpStart, lerpEnd, 1f - 0.04f * cameraTracker );
+
+
+			cameraTracker--;
+		}
+
 		cameraPosition = transform.position;
 		if (Input.GetAxis("Mouse ScrollWheel") > 0) cameraInertion = cameraInertion + 3; // forward
 		if (Input.GetAxis("Mouse ScrollWheel") < 0) cameraInertion = cameraInertion - 3; // back
@@ -48,8 +75,8 @@ public class controller : MonoBehaviour {
 		if (cameraInertion < 0){
 			cameraPosition.z--; cameraInertion++;
 		}
-
 		cameraPosition.z = Mathf.Clamp(cameraPosition.z, cameraSizeMin, cameraSizeMax );
 		transform.position = cameraPosition;
+
 	}
 }

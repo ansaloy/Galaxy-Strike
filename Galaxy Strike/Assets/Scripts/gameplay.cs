@@ -2,12 +2,21 @@
 using System.Collections;
 
 public class gameplay : MonoBehaviour {
-
 	public static bool LockScreen { get { return gamedata.player != 0; } }
-
-
 	void Start () {
-	
+	}
+	void Update () {	
+	}
+
+	//функція викликається по завершенню хода ігрока 
+	public void NextPlayer() {
+		gamedata.player++;
+		if (gamedata.player == gamedata.playersCount) {
+			gamedata.player = 0;
+			gamedata.turn++;
+			GameObject.Find("TurnLabel").GetComponent<UILabel>().text = " Turn: "+gamedata.turn.ToString();
+		}
+		NewProduction ();
 	}
 
 	// функция заповнення масивів/ Відобування ресурсів з планети; розбудова кораблів/ в
@@ -46,44 +55,35 @@ public class gameplay : MonoBehaviour {
 			if (gamedata.planetsShipsFlag[i,0]) buildedShips = Mathf.Abs(gamedata.planetsShipsBuilding[i,0] / 10); else buildedShips = 0; // кількисть кораблів 0-го ТИПУ для побудови з накопіченіх ППП
 			while (buildedShips > 0){ //  Будуємо кораблі 0-го типу
 				if (gamedata.playerResources[gamedata.player,0] >= gamedata.shipsCost[race,0,0] && gamedata.playerResources[gamedata.player,1] >= gamedata.shipsCost[race,0,1] && gamedata.playerResources[gamedata.player,2] >= gamedata.shipsCost[race,0,2] && gamedata.playerResources[gamedata.player,3] >= gamedata.shipsCost[race,0,3] && gamedata.playerResources[gamedata.player,4] >= gamedata.shipsCost[race,0,4]){
-					gamedata.playerShips[gamedata.player,0]++;
-					for(int j=0; j < 5; j++) gamedata.playerResources[gamedata.player,j] -= gamedata.shipsCost[race,0,j];
+					gamedata.planetsShipsFlot[i,0]++;// помістити корабель на планету
+					gamedata.playerShips[gamedata.player,0]++;// додати корабель в кошик
+					for(int j=0; j < 5; j++) gamedata.playerResources[gamedata.player,j] -= gamedata.shipsCost[race,0,j];// оплата ресурсами за побудований корабель
 				}
 			}
-
-
-
-			/*
-			buildedShips = Mathf.Abs(gamedata.planetsShipsBuilding[i,0] / 20); // кількисть кораблів 1-го ТИПУ для побудови з накопіченіх ППП
-			while (buildedShips > 0){ //  Будуємо кораблі 0-го типу
-				if (gamedata.playerResources[gamedata.player,0] >= gamedata.shipsCost[race,0,0] && gamedata.playerResources[gamedata.player,1] >= gamedata.shipsCost[race,0,1] && gamedata.playerResources[gamedata.player,2] >= gamedata.shipsCost[race,0,2] && gamedata.playerResources[gamedata.player,3] >= gamedata.shipsCost[race,0,3] && gamedata.playerResources[gamedata.player,4] >= gamedata.shipsCost[race,0,4]){
-					gamedata.playerShips[gamedata.player,0]++;
-					for(int j=0; j < 5; j++) gamedata.playerResources[gamedata.player,j] -= gamedata.shipsCost[race,0,j];
+			if (gamedata.planetsShipsFlag[i,1]) buildedShips = Mathf.Abs(gamedata.planetsShipsBuilding[i,1] / 20); else buildedShips = 0; // кількисть кораблів 1-го ТИПУ для побудови з накопіченіх ППП
+			while (buildedShips > 0){ //  Будуємо кораблі 1-го типу
+				if (gamedata.playerResources[gamedata.player,0] >= gamedata.shipsCost[race,1,0] && gamedata.playerResources[gamedata.player,1] >= gamedata.shipsCost[race,1,1] && gamedata.playerResources[gamedata.player,2] >= gamedata.shipsCost[race,1,2] && gamedata.playerResources[gamedata.player,3] >= gamedata.shipsCost[race,1,3] && gamedata.playerResources[gamedata.player,4] >= gamedata.shipsCost[race,1,4]){
+					gamedata.planetsShipsFlot[i,1]++;// помістити корабель на планету
+					gamedata.playerShips[gamedata.player,1]++;// додати корабель в кошик
+					for(int j=0; j < 5; j++) gamedata.playerResources[gamedata.player,j] -= gamedata.shipsCost[race,1,j];// оплата ресурсами за побудований корабель
 				}
 			}
-			*/
-
-
-
-
-		
-
-		}
-	}
-
-	//функція викликається по завершенню хода ігрока 
-	public void NextPlayer() {
-			gamedata.player++;
-			if (gamedata.player == gamedata.playersCount) {
-				gamedata.player = 0;
-				gamedata.turn++;
-				GameObject.Find("TurnLabel").GetComponent<UILabel>().text = " Turn: "+gamedata.turn.ToString();
+			if (gamedata.planetsShipsFlag[i,2]) buildedShips = Mathf.Abs(gamedata.planetsShipsBuilding[i,2] / 30); else buildedShips = 0; // кількисть кораблів 2-го ТИПУ для побудови з накопіченіх ППП
+			while (buildedShips > 0){ //  Будуємо кораблі 2-го типу
+				if (gamedata.playerResources[gamedata.player,0] >= gamedata.shipsCost[race,2,0] && gamedata.playerResources[gamedata.player,1] >= gamedata.shipsCost[race,2,1] && gamedata.playerResources[gamedata.player,2] >= gamedata.shipsCost[race,2,2] && gamedata.playerResources[gamedata.player,3] >= gamedata.shipsCost[race,2,3] && gamedata.playerResources[gamedata.player,4] >= gamedata.shipsCost[race,2,4]){
+					gamedata.planetsShipsFlot[i,2]++;// помістити корабель на планету
+					gamedata.playerShips[gamedata.player,2]++;// додати корабель в кошик
+					for(int j=0; j < 5; j++) gamedata.playerResources[gamedata.player,j] -= gamedata.shipsCost[race,2,j];// оплата ресурсами за побудований корабель
+				}
 			}
-			NewProduction ();
+			if (gamedata.planetsShipsFlag[i,3]) buildedShips = Mathf.Abs(gamedata.planetsShipsBuilding[i,3] / 50); else buildedShips = 0; // кількисть кораблів 2-го ТИПУ для побудови з накопіченіх ППП
+			while (buildedShips > 0){ //  Будуємо кораблі 3-го типу
+				if (gamedata.playerResources[gamedata.player,0] >= gamedata.shipsCost[race,3,0] && gamedata.playerResources[gamedata.player,1] >= gamedata.shipsCost[race,3,1] && gamedata.playerResources[gamedata.player,2] >= gamedata.shipsCost[race,3,2] && gamedata.playerResources[gamedata.player,3] >= gamedata.shipsCost[race,3,3] && gamedata.playerResources[gamedata.player,4] >= gamedata.shipsCost[race,3,4]){
+					gamedata.planetsShipsFlot[i,3]++;// помістити корабель на планету
+					gamedata.playerShips[gamedata.player,3]++;// додати корабель в кошик
+					for(int j=0; j < 5; j++) gamedata.playerResources[gamedata.player,j] -= gamedata.shipsCost[race,3,j];// оплата ресурсами за побудований корабель
+				}
+			}
 		}
-
-
-	void Update () {
-	
 	}
 }
