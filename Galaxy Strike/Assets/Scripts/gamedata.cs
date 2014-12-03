@@ -13,6 +13,7 @@ public class gamedata : MonoBehaviour {
 	
 	public static int turn = 0;
 	public static int player = 0; // хто ходить в даний момент 0 - humen, 1-4 - computers AI
+	public static int planetSelected; // яка планета відмічена для меню ИНФО
 
 	public static int playersCount; // килькисть гравців в згенерованому світі
 
@@ -189,6 +190,7 @@ public class gamedata : MonoBehaviour {
 		while (i < playersCount){
 			int pos = Random.Range(0, planetsLimit);
 			if (planetsOwner[pos] == -1){
+				if (i == 0) planetSelected = pos; // для гравця 0 на старті яку планету розміщуваи в меню інфо
 				planetsOwner[pos] = i;
 				i++;
 			}
@@ -217,8 +219,10 @@ public class gamedata : MonoBehaviour {
 	// зберігає поточній стан грі в файл
 	public static void Save(string fileName) {
 		StreamWriter writer = new StreamWriter ("Assets/Save/"+fileName+".txt");
-		writer.WriteLine ("turn");
-		writer.WriteLine (turn); // номер хода
+		writer.WriteLine ("turn");// номер хода
+		writer.WriteLine (turn); 
+		writer.WriteLine ("planetSelected");// відмічена планета для ІНФО
+		writer.WriteLine (planetSelected);
 		writer.WriteLine ("playersCount"); // килькисть гравців в згенерованому світі
 		writer.WriteLine (playersCount);
 		writer.WriteLine ("playersRace"); // якої раси гравці
@@ -308,6 +312,10 @@ public class gamedata : MonoBehaviour {
 		reader.ReadLine(); // номер хода
 		str = reader.ReadLine();
 		turn = int.Parse (str);
+
+		reader.ReadLine(); // відмічена планета для ІНФО
+		str = reader.ReadLine();
+		planetSelected = int.Parse (str);
 
 		reader.ReadLine();  // килькисть гравців в згенерованому світі
 		str = reader.ReadLine();

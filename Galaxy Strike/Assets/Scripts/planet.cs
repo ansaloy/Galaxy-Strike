@@ -35,7 +35,6 @@ public class planet : MonoBehaviour {
 
 		//зминюємо колbр кільця навколо планети на колір гравця
 		if (owner != gamedata.planetsOwner [index]) {
-			transform.Find("Background").gameObject.SetActive(true);
 			owner = gamedata.planetsOwner [index];
 			transform.Find ("Background").GetComponent<SpriteRenderer> ().color = gamedata.playersColor [owner];
 		}

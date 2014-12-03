@@ -47,7 +47,7 @@ public class controller : MonoBehaviour {
 				panning = false;
 				if (Time.time - timeSaved < 0.2f){
 					if (Physics.Raycast(ray1, out hit)) if (hit.collider != null){
-						print (hit.transform.parent.name);
+						gamedata.planetSelected = int.Parse(hit.transform.parent.name);
 						lerpStart = transform.position;
 						lerpEnd = hit.transform.position - new Vector3(0,0,3);
 						cameraTracker = 25;
