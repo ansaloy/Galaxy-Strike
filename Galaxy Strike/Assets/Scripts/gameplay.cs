@@ -3,6 +3,7 @@ using System.Collections;
 
 public class gameplay : MonoBehaviour {
 	public static bool LockScreen { get { return gamedata.player != 0; } }
+	int [] PlanetsStatusAI = new int[150];
 	void Start () {
 	}
 	void Update () {	
@@ -86,4 +87,38 @@ public class gameplay : MonoBehaviour {
 			}
 		}
 	}
+
+	// логика Computers AI
+	void ComputerAI(){
+		DetectPlanetsStatusAI ();
+
+	}
+	// Встановлення статусу планет: 0 - невизначений/ігнорувати; 1 - захоплювати планету; 2 - своя прикордонна планета межує з противником; 3 - своя межує з сірими та своїми 
+	void DetectPlanetsStatusAI(){
+		for (int i = 0; i < gamedata.planetsLimit; i++){
+
+			if (gamedata.planetsOwner[i] == gamedata.player) {
+				if (ConnectedMyAndFreeAI(i)) PlanetsStatusAI[i] = 3; // 3 - своя межує з сірими та своїми
+				else PlanetsStatusAI[i] = 2; // 2 - своя прикордонна планета межує з противником;
+			}
+			else{
+				if (ConnectedWhithMyAI(i)) PlanetsStatusAI[i] = 1; // 1 - захоплювати планету cіру або противника
+				else PlanetsStatusAI[i] = 0; // 0 - невизначений/ігнорувати чужа планета і з моїми не поеднана
+			}
+
+		} 
+	}
+	// Перебираю лінкі чи всі сусідні планети мої і пусті 
+	bool ConnectedMyAndFreeAI(int plnNumb){
+		bool result = true;
+		for (int i = 1; i <= gamedata.planetsConnection[plnNumb,0]; i++) if (gamedata.planetsOwner[gamedata.planetsConnection[plnNumb,i]] > 0) result = false; // -1 планета нічия, 0 - своя
+		return result;
+	}
+	// перебіраю лінки чи є хоч одна моя планети в сусідах
+	bool ConnectedWhithMyAI(int plnNumb){
+		bool result = false;
+		for (int i = 1; i <= gamedata.planetsConnection[plnNumb,0]; i++) if (gamedata.planetsOwner[gamedata.planetsConnection[plnNumb,i]] == 0) result = true; // 0 - своя
+		return result;
+	}
+	
 }
