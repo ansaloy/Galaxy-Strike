@@ -20,8 +20,10 @@ public class controller : MonoBehaviour {
 	int cameraTracker = 0;
 	Vector3 lerpStart, lerpEnd;
 
+	public bool paused = false;
 
 	void Update () {
+		if (paused) return;
 		Ray ray1 = Camera.main.ScreenPointToRay (Input.mousePosition);
 		Ray ray2 = Camera.main.ScreenPointToRay (Input.mousePosition);	
 		if (Input.touchCount == 1 || Input.mousePresent) {
