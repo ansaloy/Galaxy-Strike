@@ -180,7 +180,7 @@
      <Compile Include="Assets\NGUI\Scripts\UI\UITexture.cs" />
      <Compile Include="Assets\NGUI\Scripts\UI\UITooltip.cs" />
      <Compile Include="Assets\NGUI\Scripts\UI\UIViewport.cs" />
-     <Compile Include="Assets\Scripts\chooseplayercount.cs" />
+     <Compile Include="Assets\Scripts\ChoosePlayerCount.cs" />
      <Compile Include="Assets\Scripts\chooserace.cs" />
      <Compile Include="Assets\Scripts\controller.cs" />
      <Compile Include="Assets\Scripts\fileitem.cs" />
@@ -191,6 +191,9 @@
      <Compile Include="Assets\Scripts\gameplay.cs" />
      <Compile Include="Assets\Scripts\logo.cs" />
      <Compile Include="Assets\Scripts\mainmenu.cs" />
+     <Compile Include="Assets\Scripts\menuForvardingBtnSpript.cs" />
+     <Compile Include="Assets\Scripts\menyBuildBtnScript.cs" />
+     <Compile Include="Assets\Scripts\menyInfoBtnScript.cs" />
      <Compile Include="Assets\Scripts\planet.cs" />
      <Compile Include="Assets\Scripts\visualization.cs" />
      <None Include="Assets\NGUI\Examples\Shaders\Unlit - Depth Cutout.shader" />
